@@ -1,0 +1,31 @@
+{
+  "allChecksPass": true,
+  "movedPrimeHistogram": {
+    "0": 1125,
+    "1": 1500,
+    "2": 500
+  },
+  "primeUniverse": [
+    2,
+    3,
+    5,
+    7,
+    11
+  ],
+  "smallPrimeUniverse": [
+    2,
+    3
+  ],
+  "tuplesChecked": 3125,
+  "verifiedIdentities": [
+    "qr=d",
+    "gcd(q,small-prime-product)=1",
+    "uPrime|q",
+    "d10|r",
+    "qRaw=qt",
+    "r0=r/t",
+    "u0=uPrime*b",
+    "uPrime/u0=1/b",
+    "r0^2/d^4=r^2/(t^2*d^4)"
+  ]
+}

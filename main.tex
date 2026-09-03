@@ -1,0 +1,159 @@
+\documentclass[11pt,reqno]{amsart}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,mathrsfs}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{aliascnt}
+\usepackage[colorlinks=true,
+  linkcolor=blue!55!black,
+  citecolor=green!40!black,
+  urlcolor=blue!60!black,
+  pdftitle={A Prescribed-Factor Sieve and an Unconditional Prime-Gap Bound of 216},
+  pdfauthor={Jingwei Liu},
+  pdfsubject={Equidistribution to prescribed-factor moduli and bounded gaps between primes},
+  pdfkeywords={bounded gaps between primes, Maynard sieve, q-van der Corput method, equidistribution, trace functions, interval arithmetic}]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\allowdisplaybreaks
+\numberwithin{equation}{section}
+\setlist{nosep}
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}[section]
+\newaliascnt{proposition}{theorem}
+\newtheorem{proposition}[proposition]{Proposition}
+\aliascntresetthe{proposition}
+\newaliascnt{lemma}{theorem}
+\newtheorem{lemma}[lemma]{Lemma}
+\aliascntresetthe{lemma}
+\newaliascnt{corollary}{theorem}
+\newtheorem{corollary}[corollary]{Corollary}
+\aliascntresetthe{corollary}
+\newaliascnt{hypothesis}{theorem}
+\newtheorem{hypothesis}[hypothesis]{Hypothesis}
+\aliascntresetthe{hypothesis}
+\theoremstyle{definition}
+\newaliascnt{definition}{theorem}
+\newtheorem{definition}[definition]{Definition}
+\aliascntresetthe{definition}
+\newaliascnt{remark}{theorem}
+\newtheorem{remark}[remark]{Remark}
+\aliascntresetthe{remark}
+
+\crefname{theorem}{Theorem}{Theorems}
+\crefname{proposition}{Proposition}{Propositions}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{hypothesis}{Hypothesis}{Hypotheses}
+\crefname{definition}{Definition}{Definitions}
+\crefname{remark}{Remark}{Remarks}
+\Crefname{theorem}{Theorem}{Theorems}
+\Crefname{proposition}{Proposition}{Propositions}
+\Crefname{lemma}{Lemma}{Lemmas}
+\Crefname{corollary}{Corollary}{Corollaries}
+\Crefname{hypothesis}{Hypothesis}{Hypotheses}
+\Crefname{definition}{Definition}{Definitions}
+\Crefname{remark}{Remark}{Remarks}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\e}{\mathrm e}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\1}{\mathbf 1}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\lcm}{\operatorname{lcm}}
+\newcommand{\rad}{\operatorname{rad}}
+\newcommand{\DHL}{\operatorname{DHL}}
+\newcommand{\SW}{\operatorname{SW}}
+\newcommand{\DS}{\mathcal D_{\mathrm{pf}}}
+\newcommand{\Qfam}{\mathcal Q^{\sharp}}
+\newcommand{\Rfam}{\mathcal R^{\sharp}}
+\newcommand{\eps}{\varepsilon}
+
+\title[An unconditional prime-gap bound of 216]
+{A Prescribed-Factor Sieve and an Unconditional\\
+Prime-Gap Bound of $216$}
+
+\author{Jingwei Liu}
+\date{September 3, 2026}
+
+\subjclass[2020]{Primary 11N05, 11N36; Secondary 11L07, 11N35, 65G30}
+\keywords{bounded gaps between primes, Maynard--Tao sieve,
+equidistribution in arithmetic progressions, q-van der Corput method,
+trace functions, rigorous interval arithmetic}
+
+\begin{document}
+
+\begin{abstract}
+Let $H_1=\liminf_{n\to\infty}(p_{n+1}-p_n)$.  We prove the
+unconditional bound $H_1\le216$ by combining a prescribed-factor
+equidistribution theorem with a rigorously certified Maynard sieve weight.
+The analytic theorem treats Type-I convolutions in arithmetic progressions
+to squarefree moduli $d\le x^{1/2+2\omega}$ possessing an explicit chain of
+divisors in prescribed scale windows.  Its proof replaces global smoothness
+of the modulus by transport of these divisor witnesses, retains both branches
+of the genuine terminal scale, and closes the supported $q$-van der Corput
+descent and outer dispersion argument without a conjectural input.
+
+The finite sieve component uses a layered support region recording both the
+number and total mass of coordinates above a fixed threshold.  A
+$208$-parameter rational test function for $k=46$ is verified by exact
+support arithmetic and $1024$-bit outward-rounded Arb integration, giving
+\[
+\frac{46J(F)}{I(F)}>
+1.0000266555919862183480792294536290427.
+\]
+We also certify an admissible $46$-tuple of diameter $216$.  The
+prescribed-factor theorem, the exact support decomposition, and the
+Maynard--Polymath transfer then give infinitely many pairs of primes at
+distance at most $216$.  The paper distinguishes the cited trace and
+dispersion theorems from the new support-transport argument; no unproved
+equidistribution hypothesis is used.  All finite data, hashes, interval
+certificates, and verification programs are supplied as ancillary files.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\input{sections/01-introduction}
+\input{sections/02-preliminaries}
+\input{sections/03-source-diagnosis}
+\input{s52-proof/02-terminal-trace}
+\input{s52-proof/03-factor-interfaces}
+\input{s52-proof/04-supported-descent}
+\input{s52-proof/05-terminal-closure}
+\input{s52-proof/06-outer-closure}
+\input{sections/08-layered-certificate}
+\input{sections/09-main-theorem}
+
+\section*{Acknowledgements and computational disclosure}
+This work developed through an extended human--AI collaboration.  The author
+formulated the prescribed-factor research program, identified the need to
+retain factor-address information, and obtained the initial diameter-$226$
+construction.  The antecedent prescribed-factor framework and its proposed
+diameter-$240$ application are due to Stadlmann; the two analytic inheritance
+issues in that proposal are identified and repaired in this paper.
+OpenAI Codex proposed the layered address-state variational ansatz that reduced
+the finite candidate diameter from $226$ to $216$, helped design and implement
+the exact-support and interval-arithmetic verification pipeline,
+assisted in diagnosing and repairing the two source-level inheritance issues
+treated in \cref{sec:diagnosis}, and supported the organization and preparation of the
+manuscript.  The author reviewed the resulting arguments and artifacts and
+accepts full responsibility for every mathematical claim, citation, and
+conclusion in the paper.  The finite certificates and source code are supplied
+so that the computer-assisted component can be checked independently.
+
+\appendix
+\input{s52-proof/07-dependency-and-status}
+\input{appendices/b-certificate-and-reproduction}
+
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}

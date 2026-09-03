@@ -1,0 +1,213 @@
+\section{The sieve interface and the bound
+\texorpdfstring{$H_1\le216$}{H1 <= 216}}
+\label{sec:main-proof}
+
+For completeness we isolate the precise special case of the
+Maynard--Polymath sieve used here.  This prevents the final implication from
+depending on the corresponding proposition in \cite{Stadlmann2026}.  Put
+\[
+ W=W(x)=\prod_{p\le\log\log\log x}p,
+ \qquad B_x=\frac{\varphi(W)}W\log x.
+\]
+Also set $\theta(n)=\log n$ for $n\in\Pp$ and $\theta(n)=0$ otherwise, and
+write
+\begin{align*}
+ \Delta_\theta(x;a,Q)
+ ={}&\sum_{\substack{x+O(1)\le m\le2x+O(1)\\m\equiv a\ (Q)}}\theta(m)\\
+ &-\frac1{\varphi(Q)}
+ \sum_{\substack{x+O(1)\le m\le2x+O(1)\\(m,Q)=1}}\theta(m).
+\end{align*}
+If $S\subset[0,\infty)^k$ is compact and downward closed, let
+$\mathcal Q_i(S,\epsilon_0;x)$ be the set of squarefree integers
+\[
+ q=\prod_{j\ne i}[d_j,e_j]
+\]
+for which the factors $[d_j,e_j]$ are pairwise coprime and coprime to $W$, and
+both vectors $(\log_xd_j)_j$ and $(\log_xe_j)_j$ belong to
+$(1-\epsilon_0)S$.  We say that $S$ has the \emph{common-residue
+prime-distribution property} if, for every $i$, $A>0$, fixed $C>0$, and
+integer $a=a(x)$ satisfying $(a,p)=1$ for every prime $p\le x$,
+\begin{equation}\label{eq:generated-ed}
+ \sum_{q\in\mathcal Q_i(S,\epsilon_0;x)}\tau(q)^C
+ \left|\Delta_\theta(x;a,Wq)\right|
+ \ll_{A,C,\epsilon_0}\frac{x}{(\log x)^A}.
+\end{equation}
+The bounded endpoint shifts are uniform.  The harmless divisor weight is
+included so that the hypothesis matches the divisor expansion literally;
+as usual, it can be recovered from an arbitrarily strong unweighted estimate
+by divisor-moment truncation.
+
+\begin{proposition}[Sieve transfer]\label{prop:sieve-transfer}
+Let $\mathcal H=\{h_1,\ldots,h_k\}$ be admissible, let $S$ be compact and
+downward closed, and let $G\in C_c^\infty(\operatorname{int}S)$ be symmetric.
+Assume
+\begin{equation}\label{eq:mass-support}
+ \sup_{\mathbf t,\mathbf u\in S}
+ \sum_{j=1}^k(t_j+u_j)<1
+\end{equation}
+and suppose that \cref{eq:generated-ed} holds for $S$.  If
+\begin{equation}\label{eq:sieve-criterion}
+ \sum_{i=1}^kJ_i(G)>I(G),
+\end{equation}
+then infinitely many translates $n+\mathcal H$ contain at least two primes.
+\end{proposition}
+
+\begin{proof}
+Choose a residue $b\bmod W$ for which $(b+h_i,W)=1$ for every $i$.
+Use the tensor-antiderivative approximation from
+\cite[Sections~4--5]{PolymathSieve2014}: after a fixed shrinkage of the
+support, write $G$ to arbitrary $C^1$ accuracy as a finite sum of tensor
+products $\sum_\ell c_\ell\prod_i g_{\ell,i}$ and put
+$f_{\ell,i}(t)=\int_t^\infty g_{\ell,i}(u)\,du$.  With
+\[
+ \lambda_f(m)=\sum_{d\mid m}\mu(d)f(\log_xd),\qquad
+ \nu(n)=
+ \left(\sum_\ell c_\ell
+ \prod_{i=1}^k\lambda_{f_{\ell,i}}(n+h_i)\right)^2,
+\]
+    Theorems~3.4 and~3.5 of
+\cite{PolymathSieve2014,PolymathSieveErratum2015} give, respectively,
+\begin{align}
+ \sum_{\substack{x\le n\le2x\\n\equiv b\ (W)}}\nu(n)
+ &=(I(G)+o(1))C_x,\label{eq:sieve-mass}\\
+ \sum_{\substack{x\le n\le2x\\n\equiv b\ (W)}}
+ \nu(n)\theta(n+h_i)
+ &=\left(J_i(G)+o(1)\right)C_x\log x
+ \qquad(1\le i\le k),
+ \label{eq:sieve-prime-mass}
+\end{align}
+where
+\[
+ C_x=B_x^{-k}\frac{x}{W}>0.
+\]
+Condition \cref{eq:mass-support} is exactly the trivial-support hypothesis in
+the non-prime asymptotic.  For \cref{eq:sieve-prime-mass}, expansion of the
+two divisor sums produces the modulus
+$W\prod_{j\ne i}[d_j,e_j]$.  After removing finitely many primes dividing
+$\prod_{r<s}(h_r-h_s)$ into $W$, the displayed least common multiples are
+pairwise coprime.  The resulting residue class depends on the divisor tuple,
+so one must not replace it by a pointwise maximum without proof.
+
+We use the standard rough-residue averaging device.  Put
+$P_x=\prod_{p\le x}p$ and let $\mathcal A_i$ be the residue classes modulo
+$P_x$ satisfying
+\[
+ a\equiv b+h_i\pmod W,
+ \qquad
+ a\equiv h_i-h_j\pmod p
+ \quad\text{for one }j\ne i
+\]
+at each prime $W<p\le x$.  Every $a\in\mathcal A_i$ is coprime to $P_x$.
+For a fixed divisor tuple, the generated class modulo
+$Wq=W\prod_{j\ne i}[d_j,e_j]$ is represented by
+\[
+ \frac{|\mathcal A_i|}{(k-1)^{\omega(q)}}
+\]
+members of $\mathcal A_i$.  Since
+$(k-1)^{\omega(q)}\le\tau(q)^{C_k}$ for a fixed $C_k$, its discrepancy is
+bounded by
+\[
+ \frac{\tau(q)^{C_k}}{|\mathcal A_i|}
+ \sum_{a\in\mathcal A_i}|\Delta_\theta(x;a,Wq)|.
+\]
+After summing the divisor tuples, their multiplicity is another fixed power
+of $\tau(q)$.  Averaging \cref{eq:generated-ed} over
+$a\in\mathcal A_i$ therefore bounds the full error by
+$O_A(x(\log x)^{-A})$.  This is the residue-class transfer used in
+\cite[Section~2.4]{Stadlmann2026}.  The main term is the one-coordinate
+deletion integral $J_i(G)$.
+
+By \cref{eq:sieve-criterion,eq:sieve-mass,eq:sieve-prime-mass}, for all
+sufficiently large $x$ one has
+\[
+ \sum_{\substack{x\le n\le2x\\n\equiv b\ (W)}}\nu(n)
+ \left(\sum_{i=1}^k\theta(n+h_i)-\log(3x)\right)>0.
+\]
+Since $\nu(n)\ge0$ and $n+h_i<3x$ for large $x$, some $n$ in the
+progression has at least two prime translates.
+The same argument on every sufficiently large dyadic interval gives
+infinitely many such translates.
+\end{proof}
+
+Proposition~\ref{prop:support-routing} gives the exact support routing.  To
+make the analytic dependencies auditable, \cref{tab:support-inputs} records
+the estimate used for each named cell.  Lemma numbers in the non-BV rows
+refer to version~1 of \cite{Stadlmann2026}; those lemmas are themselves
+relaxed-modulus variants of the published results shown in the right column.
+\begin{table}[ht]
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+cell & direct input & antecedent or replacement\\
+\midrule
+BV & Bombieri--Vinogradov & \cite{PolymathSieve2014}\\
+Type I & \cite[Lemma~5]{Stadlmann2026} & \cite[Lemma~5]{BakerIrving2017}\\
+Type IIa & \cite[Lemma~3]{Stadlmann2026} &
+  \cite[Theorem~2.8(iv)]{PolymathEDZ2014}\\
+Type IIb & \cite[Lemma~4]{Stadlmann2026} &
+  \cite[Theorem~2.8(ii)]{PolymathEDZ2014}\\
+Type IIc & \cref{thm:S52} & replaces
+  \cite[Lemma~6]{Stadlmann2026}\\
+Type III & \cite[Lemma~7]{Stadlmann2026} &
+  \cite[Theorem~2.8(v)]{PolymathEDZ2014}\\
+\bottomrule
+\end{tabular}
+\caption{Cell-by-cell analytic inputs for the exact support router.}
+\label{tab:support-inputs}
+\end{table}
+The support certificate verifies the hypotheses of these six rows for every
+pair of cells.  The non-Type-IIc rows are the established relaxed-modulus
+forms cited in the table, while the Type-IIc row is \cref{thm:S52}, proved in
+\cref{sec:terminal,sec:interfaces,sec:descent,sec:closure,sec:outer}.
+The standard finite convolution decomposition used in
+\cite[Sections~3--4]{Stadlmann2026}, followed cell by cell through the exact
+support router, therefore gives \cref{eq:generated-ed}.  The harmless factor
+$W=x^{o(1)}$ is absorbed by the small-prime preprocessing.  Finally, the
+inequality $2R<1$ gives \cref{eq:mass-support}.  Hence the smooth approximant
+furnished by \cref{lem:smooth-approximation} has the common-residue
+prime-distribution property required by \cref{prop:sieve-transfer}.
+
+\begin{lemma}[A diameter-\(216\) admissible tuple]\label{lem:tuple}
+The set
+\begin{align*}
+\mathcal H=\{&
+0,4,6,16,18,28,30,34,40,48,54,58,60,64,70,76,78,84,88,96,\\
+&100,106,114,118,120,126,130,138,144,148,154,160,166,168,\\
+&174,180,184,186,190,196,198,204,208,210,214,216\}
+\end{align*}
+is an admissible \(46\)-tuple of diameter \(216\).
+\end{lemma}
+
+\begin{proof}
+The entries are distinct and lie in $[0,216]$.  For every prime
+$p\le43$, direct reduction leaves at least one residue class unoccupied;
+the complete missing-residue table appears in \cref{app:certificate}.
+For $p>46$, a set of $46$ integers cannot occupy all $p$ residue classes.
+Hence no prime sees every residue class and $\mathcal H$ is admissible.
+\end{proof}
+
+\begin{proof}[Proof of \cref{thm:main}]
+By \cref{thm:finite-certificate,lem:smooth-approximation}, choose a smooth
+symmetric admissible test function $G$ satisfying
+\[
+ \sum_{i=1}^{46}J_i(G)=46J(G)>I(G).
+\]
+The support inputs in \cref{tab:support-inputs}, including the proved
+\cref{thm:S52}, verify the distribution property of
+\cref{prop:sieve-transfer}.  Apply that proposition to the
+tuple in \cref{lem:tuple}.  Infinitely many intervals of length $216$
+therefore contain two primes.  Replacing those two primes by two consecutive
+primes lying between them can only decrease their distance, so
+\[
+ H_1=\liminf_{n\to\infty}(p_{n+1}-p_n)\le216.
+\]
+\end{proof}
+
+\begin{remark}[Logical status]\label{rem:verification-status}
+No conjectural equidistribution hypothesis is used in the theorem above.
+The Type-IIc input is proved as \cref{thm:S52}; the remaining analytic rows
+invoke the established results cited in \cref{tab:support-inputs}.  The
+$k=46$ variational inequality and tuple admissibility are finite theorems
+supported by exact and outward-rounded verification artifacts.  Thus the
+conclusion $H_1\le216$ is unconditional in the usual mathematical sense.
+\end{remark}

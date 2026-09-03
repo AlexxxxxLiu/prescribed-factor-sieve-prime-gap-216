@@ -1,0 +1,168 @@
+\section{Introduction}
+
+Let $p_n$ denote the $n$th prime and put
+\[
+ H_m=\liminf_{n\to\infty}(p_{n+m}-p_n).
+\]
+Zhang's proof that $H_1$ is finite initiated a rapid sequence of
+improvements based on distribution estimates for primes in arithmetic
+progressions and multidimensional sieve weights
+\cite{Zhang2014,Maynard2015,PolymathEDZ2014,PolymathSieve2014}.
+The Polymath project obtained the unconditional bound $H_1\le246$.
+Stadlmann subsequently strengthened the smooth-modulus q-van der Corput
+estimate \cite{Stadlmann2025}; a recent preprint proposes combining related
+equidistribution estimates with a layered sieve support to deduce
+$H_1\le240$ \cite{Stadlmann2026}.
+
+The purpose of this paper is twofold.  First, we prove the exact
+prescribed-factor Type-I statement needed to enlarge the sieve support.  The
+proof starts from the established dispersion and trace-function estimates of
+D.~H.~J. Polymath, replaces every use of global modulus smoothness by an
+explicit factor or squarefree-support argument, and closes the return from
+the terminal descendants to the original discrepancy.  Second, we construct
+and rigorously certify a layered $k=46$ Maynard weight.  Together these two
+components yield the following result.
+
+\begin{theorem}[Prime-gap bound]\label{thm:main}
+One has
+\[
+ \boxed{H_1\le216.}
+\]
+Equivalently, infinitely many pairs of distinct primes differ by at most
+$216$.
+\end{theorem}
+
+The new analytic input is stated next.  The terminology concerning
+coefficient sequences and equidistribution is recalled in
+\cref{sec:preliminaries}.
+
+\begin{definition}[Prescribed-factor family]\label{def:S52-family}
+For fixed $\omega,\delta,\gamma,\eta>0$, let $\DS(x)$ consist of the
+integers $d\le x^{1/2+2\omega}$ for which there exist
+\[
+ r\mid d,\qquad u\mid d/r,\qquad d_1\mid r
+\]
+satisfying
+\begin{align}
+ x^{\gamma-3\eta-\delta}<r&<x^{\gamma-3\eta},\label{eq:S52-r}\\
+ x^{1-\gamma-6\eta-\delta}d^{-1}<u
+ &<x^{1-\gamma-6\eta}d^{-1},\label{eq:S52-u}\\
+ r^2x^{2-\gamma-52\eta-\delta}d^{-4}<d_1
+ &<r^2x^{2-\gamma-52\eta}d^{-4}.
+ \label{eq:S52-d1}
+\end{align}
+\end{definition}
+
+\begin{theorem}[Prescribed-factor Type-I estimate]
+\label{thm:S52}
+Let $f=\alpha\star\beta$, where $\alpha$ and $\beta$ are coefficient
+sequences at scales $M$ and $N=x^\gamma$, respectively,
+$MN\asymp x$, $N\le x^{1/2}$, and $\beta$ has the Siegel--Walfisz
+property.  Suppose
+\begin{align}
+ 8\omega+4\delta+2\gamma&<1,\label{eq:S52-a}\\
+ 32\omega+10\delta-\gamma&<0,\label{eq:S52-b}\\
+ 48\omega+16\delta-4\gamma&<-1.\label{eq:S52-c}
+\end{align}
+There is $\eta_0=\eta_0(\omega,\delta,\gamma)>0$ such that, whenever
+$0<\eta<\eta_0$, for every $A>0$ and every integer $a=a(x)$ satisfying
+$(a,p)=1$ for every prime $p\le x$,
+\begin{equation}\label{eq:S52-conclusion}
+ \sum_{\substack{d\in\DS(x)\\d\ \mathrm{squarefree}}}
+ \left|
+ \sum_{\substack{x\le n\le2x\\n\equiv a\pmod d}}f(n;x)
+ -\frac1{\varphi(d)}
+ \sum_{\substack{x\le n\le2x\\(n,d)=1}}f(n;x)
+ \right|
+ \ll_{A,\eta,\omega,\delta,\gamma}
+ \frac{x}{(\log x)^A}.
+\end{equation}
+The estimate is uniform in the permitted residue $a$, and the constants are
+uniform when $(\omega,\delta,\gamma)$ ranges over a compact subset of the
+open region above.
+\end{theorem}
+
+Our second input is a finite theorem.
+
+\begin{theorem}[Layered variational certificate]\label{thm:finite-intro}
+For $k=46$, $R=521/2000$, $\delta=1/50$, and
+$\omega=57/10000$, there exists a smooth symmetric Maynard test function
+$F$ supported on the layered region defined in \cref{def:layered-region}
+such that
+\begin{equation}\label{eq:finite-intro}
+ \frac{46J(F)}{I(F)}>
+ 1.0000266555919862183480792294536290427.
+\end{equation}
+The strict inequality is certified by exact rational support arithmetic and
+outward-rounded $1024$-bit interval integration.
+\end{theorem}
+
+\subsection{The correction completed in this paper}
+
+The prescribed-factor statement in \cref{thm:S52} appears as Lemma~6 of
+\cite[version~1, p.~12]{Stadlmann2026}.  The published 2025 theorem
+\cite{Stadlmann2025}, however, applies to globally $x^\delta$-smooth moduli.
+Passing to the larger prescribed-factor family requires an additional
+inheritance argument.
+
+Two concrete issues prevent the extension sketch in
+\cite[version~1, pp.~12, 17--18]{Stadlmann2026} from supplying that argument
+as written.  First, the modulus family is stated with a $52\eta$ window,
+restated in the proof with a $100\eta$ window, and then used again with
+$52\eta$.  Second, the proof introduces
+\[
+ \Delta^*=\min\left\{\frac{N}{|\Lambda|x^{5\eta}},\Delta_1\right\}
+\]
+and sets $\Delta^*=\Delta_1$ using two quantities that are both bounded
+below by a third.  Such bounds do not compare the two quantities and hence do
+not justify the asserted identity.  We discuss these points precisely in
+\cref{sec:diagnosis}.  Our repair keeps the $52\eta$ family and retains both
+branches of $\Delta^*$ throughout.
+
+No conclusion is drawn from criticism alone.  The terminal trace estimate,
+support transport, supported descent, two-branch exponent ledger, and outer
+dispersion closure are proved in
+\cref{sec:terminal,sec:interfaces,sec:descent,sec:closure,sec:outer}.  Their
+composition proves \cref{thm:S52} without using the prescribed-factor claim
+of \cite{Stadlmann2026} as an input.
+
+\subsection{Main novelties}
+
+The paper introduces four ingredients.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item A long-scale completion lemma for the terminal two-variable trace sum,
+uniform for arbitrary squarefree polynomial-size moduli.  It uses the second
+estimate in Polymath Proposition~8.4 and does not require dense divisibility.
+\item A factor-interface calculus that replaces the two uses of global
+smoothness by explicit divisors in prescribed windows.  Prime supports,
+units, valuation saturation, $q_0$-powers, and subpower preprocessing losses
+are transported separately.
+\item An explicit one-way inheritance proof.  It fixes the order of witness
+selection, Cauchy duplication, nonnegative enlargement, terminal completion,
+and outer Cartesian summation.  This closes the local and outer transitions
+without transferring a witness to an unrelated Cauchy copy.
+\item A layered variational ansatz that records both the count and mass of
+coordinates above $\delta$.  This retains information lost by a purely
+radial ansatz and produces a certified crossing with $k=46$ on the corrected
+support.
+\end{enumerate}
+
+\subsection{Computer assistance and logical scope}
+
+The analytic proof is written independently of the verification programs.
+The programs check finite exponent identities, support incidence relations,
+and parameter margins; they do not replace the cited trace estimates or the
+analytic arguments proving \cref{thm:S52}.  Computer assistance is essential
+for \cref{thm:finite-intro}.  There every input is rational, the support cover
+is checked by exact linear arithmetic, and all integrals are enclosed by Arb
+intervals.  The candidate and certificates are linked by SHA-256 hashes.
+
+\subsection{Organization}
+
+After the preliminaries, \cref{sec:diagnosis} compares the smooth-modulus
+parent theorem with the prescribed-factor extension and identifies the two
+transitions requiring repair.  Sections \ref{sec:terminal}--\ref{sec:outer}
+prove \cref{thm:S52}.  Section \ref{sec:layered} proves the finite certificate,
+and \cref{sec:main-proof} combines the analytic and finite components to prove
+\cref{thm:main}.  The appendices record the dependency graph and the
+reproducibility manifest.

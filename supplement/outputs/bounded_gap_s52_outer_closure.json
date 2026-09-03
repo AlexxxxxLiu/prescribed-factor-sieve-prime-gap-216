@@ -1,0 +1,37 @@
+{
+  "name": "S52 outer-closure exact monomial regression",
+  "claimBoundary": "This checks the algebra of Proposition 4.1; it does not replace the analytic Cauchy, completion, or divisor-sum estimates.",
+  "localizedCauchyMonomial": {
+    "N": "1/1",
+    "Q": "1/1",
+    "R": "1/1",
+    "U": "1/1",
+    "V": "1/1",
+    "eta": "-2/1",
+    "g": "1/1",
+    "q0": "-1/1"
+  },
+  "afterUVEqualsQOverQ0": {
+    "N": "1/1",
+    "Q": "2/1",
+    "R": "1/1",
+    "eta": "-2/1",
+    "g": "1/1",
+    "q0": "-2/1"
+  },
+  "afterOuterWeightAndEllCount": {
+    "M": "1/1",
+    "N": "2/1",
+    "R": "-1/1",
+    "eta": "-2/1",
+    "gOverQ0Summed": "1/1"
+  },
+  "checks": {
+    "cauchySquareRootCorrect": true,
+    "factorInterfaceGivesQ0MinusTwo": true,
+    "outerSummandIsGcdOverQ0": true,
+    "ellCountGivesMN2OverR": true,
+    "twoHalfEtaLossesLeaveEtaSaving": true
+  },
+  "allChecksPass": true
+}

@@ -1,0 +1,55 @@
+{
+  "branches": {
+    "diagonal_pair_boundary": {
+      "hPower": 3,
+      "passes": true,
+      "q0PowerAfterHUpper": -1,
+      "q0PowerAtFixedH": 2,
+      "role": "retained main-term loss"
+    },
+    "equal_n_unequal_y_long_term": {
+      "hPower": 4,
+      "passes": true,
+      "q0PowerAfterHUpper": -4,
+      "q0PowerAtFixedH": 0,
+      "role": "discarded error"
+    },
+    "equal_y_unequal_n_error": {
+      "hPower": 0,
+      "passes": true,
+      "q0PowerAfterHUpper": -1,
+      "q0PowerAtFixedH": -1,
+      "role": "discarded error"
+    },
+    "exact_diagonal_error": {
+      "hPower": 2,
+      "passes": true,
+      "q0PowerAfterHUpper": -4,
+      "q0PowerAtFixedH": -2,
+      "role": "discarded error"
+    },
+    "fully_off_diagonal_error": {
+      "hPower": 2,
+      "passes": true,
+      "q0PowerAfterHUpper": -3,
+      "q0PowerAtFixedH": -1,
+      "role": "discarded error"
+    }
+  },
+  "conclusion": "The non-diagonal q0 losses are absorbed by Delta or Delta1. Only the diagonal pair boundary retains the q0^2 cost.",
+  "interfaces": {
+    "Delta1Upper": "N / (q0^2 x^(55 eta) H^2)",
+    "DeltaUpper": "N / (q0^2 x^(50 eta) H^2)",
+    "VUpper": "q0 x^(delta+5 eta) H",
+    "YOverLargeGcd": "q0^-1 x^(-150 eta) min(t,H) / H^2",
+    "YUpper": "q0 x^(delta+5 eta) H^2 / g",
+    "largeGcdThreshold": "max(1/t,1/H) x^(delta+100 eta) H^2 N / (g Delta1)"
+  },
+  "name": "S52 intermediate q0 transport ledger",
+  "status": {
+    "YOverLargeGcdHasQ0Saving": true,
+    "allChecksPass": true,
+    "allDiscardedErrorsHaveNonpositiveResidualQ0": true,
+    "onlyRetainedPositiveCostIsAtMostQ0Squared": true
+  }
+}

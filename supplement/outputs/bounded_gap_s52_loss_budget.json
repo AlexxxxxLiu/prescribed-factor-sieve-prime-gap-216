@@ -1,0 +1,105 @@
+{
+  "etaCoefficients": {
+    "WTS1_H": 94,
+    "WTS1_H2": 91,
+    "WTS2_H7": 245,
+    "WTS2_H8": 242,
+    "WTS3_Delta1_H11": 327,
+    "WTS3_Delta1_H12": 324,
+    "WTS3_Lambda_H11": 282,
+    "WTS3_Lambda_H12": 279
+  },
+  "gcdRepairEtaCoefficients": {
+    "WTS1_H": -6,
+    "WTS1_H2": -9,
+    "WTS2_H7": 145,
+    "WTS2_H8": 142,
+    "WTS3_Delta1_H11": 227,
+    "WTS3_Delta1_H12": 224,
+    "WTS3_Lambda_H11": 182,
+    "WTS3_Lambda_H12": 179
+  },
+  "interfaceFormulae": {
+    "delta1": "N/(q0^2 x^((delta+kappa eta)) H^2)",
+    "extractedDelta": "N/(q0^2 x^((C-2) eta) H^2)",
+    "kappa": "C-2+smoothingLoss"
+  },
+  "maximumEtaCoefficient": 327,
+  "name": "S52 principal-versus-eta loss budget",
+  "nextTrueImprovementTarget": {
+    "activeGlobalBottleneck": "WTS2_H8 at the edge of the region",
+    "doesLowering52AloneSuffice": false,
+    "requiredTypeOfGain": "reduce a principal coefficient in 32 omega + 10 delta - gamma, or improve the finite k=45/k=46 Maynard functional"
+  },
+  "parameters": {
+    "delta1EtaExponentKappa": 55,
+    "diagonalEtaLoss": 10,
+    "gcdRepairGain": 100,
+    "hUpperEtaLoss": 7,
+    "smoothingLoss": 5,
+    "terminalLoss": 131,
+    "windowConstantC": 52
+  },
+  "principalConditions": {
+    "combinedFeasibility": "72 omega + 24 delta < 1",
+    "lowerGammaWTS2": "gamma > 32 omega + 10 delta",
+    "lowerGammaWTS3": "gamma > 1/4 + 12 omega + 4 delta",
+    "secondaryFeasibility": "64 omega + 24 delta < 1",
+    "upperGamma": "gamma < 1/2 - 4 omega - 2 delta"
+  },
+  "principalIndependence": {
+    "maximumOmegaAtRequestedDelta": "13/1800",
+    "maximumOmegaAtRequestedDeltaDecimal": 0.007222222222222222,
+    "maximumOmegaFromWTS2": "13/1800",
+    "maximumOmegaFromWTS3": "13/1600",
+    "reason": "C multiplies eta only; all C-dependence vanishes in the eta-to-zero principal exponent polytope.",
+    "windowConstantAffectsPrincipalRegion": false
+  },
+  "slices": {
+    "diameter216Legacy": {
+      "activeLowerBranch": "WTS3",
+      "delta": "7/250",
+      "feasible": true,
+      "gammaLower": "199/500",
+      "gammaLowerWTS2": "47/125",
+      "gammaLowerWTS3": "199/500",
+      "gammaUpper": "54/125",
+      "omega": "3/1000",
+      "sampleGamma": "83/200",
+      "width": "17/500",
+      "widthDecimal": 0.034
+    },
+    "diameter226": {
+      "activeLowerBranch": "WTS3",
+      "delta": "1/50",
+      "feasible": true,
+      "gammaLower": "249/625",
+      "gammaLowerWTS2": "239/625",
+      "gammaLowerWTS3": "249/625",
+      "gammaUpper": "1093/2500",
+      "omega": "57/10000",
+      "sampleGamma": "2089/5000",
+      "width": "97/2500",
+      "widthDecimal": 0.0388
+    },
+    "requested": {
+      "activeLowerBranch": "WTS3",
+      "delta": "1/50",
+      "feasible": true,
+      "gammaLower": "249/625",
+      "gammaLowerWTS2": "239/625",
+      "gammaLowerWTS3": "249/625",
+      "gammaUpper": "1093/2500",
+      "omega": "57/10000",
+      "sampleGamma": "2089/5000",
+      "width": "97/2500",
+      "widthDecimal": 0.0388
+    }
+  },
+  "status": {
+    "algebraicAuditPass": true,
+    "claimBoundary": "Changing C is only a post-interface sensitivity calculation; it is not a proof of an S_C theorem.",
+    "defaultRegressionPass": true,
+    "requestedPrincipalRegionFeasible": true
+  }
+}

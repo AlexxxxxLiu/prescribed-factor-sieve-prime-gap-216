@@ -1,0 +1,163 @@
+\section{The terminal squarefree trace estimate}
+\label{sec:terminal}
+
+Fix $C\ge1$.  Let $\mathcal P$ be a class of profiles supported in one
+fixed compact interval and satisfying
+
+\begin{equation}\label{eq:profile-bounds}
+ \|\psi^{(j)}\|_{L^1}+\|\psi^{(j)}\|_{L^\infty}
+ \le B_j(\log x)^{A_j},\qquad 0\le j\le2,
+\end{equation}
+
+for fixed $A_j,B_j$.  Write
+$\psi_T(n)=\psi((n-x_0)/T)$, allowing an arbitrary real shift $x_0$.
+When $T<1$, this notation denotes a sequence supported on $O_{\mathcal P}(1)$
+integers and bounded by $(\log x)^{O_{\mathcal P}(1)}$.
+
+\begin{lemma}[Uniform long-scale completion]\label{lem:long-completion}
+Let $q\le x^C$ be squarefree, and let $K(\cdot;q)$ be a composite trace
+function whose prime-local sheaves have bounded conductor and no polynomial
+phase of degree at most one.  Uniformly for $1\le T\le x^C$,
+
+\begin{equation}\label{eq:long-completion}
+ \left|\sum_n\psi_T(n)K(n;q)\right|
+ \ll_{\eps_{\rm tr},\mathcal P}x^{\eps_{\rm tr}}
+ \left(q^{1/2}+\frac{T}{q^{1/2}}\right).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Periodize $\psi_T$ modulo $q$ and use the normalized finite Fourier
+transform
+
+\[
+ \widehat K_q(h)=q^{-1/2}\sum_{a\bmod q}K(a;q)e_q(ha).
+\]
+
+The Fourier-sheaf estimate in
+\cite[Corollary~6.24]{PolymathEDZ2014} gives
+$|\widehat K_q(h)|\ll C_0^{\omega(q)}$ for every $h$, including zero.
+Squarefreeness and $q\le x^C$ absorb this factor into
+$x^{\eps_{\rm tr}/16}$.
+
+Poisson summation and two integrations by parts give, uniformly for
+$|y|\le1/2$,
+
+\[
+ \left|\sum_n\psi_T(n)e(-ny)\right|
+ \ll(\log x)^{O(1)}\frac{T}{(1+T|y|)^2}.
+\]
+
+Fourier inversion is exact:
+
+\[
+ \sum_n\psi_T(n)K(n;q)
+ =q^{-1/2}\sum_{h\bmod q}\widehat K_q(h)
+ \sum_n\psi_T(n)e(-hn/q).
+\]
+
+The zero frequency is
+$O(x^{\eps_{\rm tr}/4}Tq^{-1/2})$, and summation over the nonzero
+frequencies is $O(x^{\eps_{\rm tr}/4}q^{1/2})$.  The fixed logarithmic
+factors fit in the remaining reserve.
+\end{proof}
+
+At a vanishing denominator we use either zero extension or the projective
+convention under which a local factor with trivial numerator character is
+one.  The following bound is valid under both conventions.
+
+\begin{lemma}[Two-variable squarefree trace bound]
+\label{lem:squarefree-trace}
+Let $m\le x^C$ be squarefree and let $0<N,\Delta\le x^C$.  For arbitrary
+residue classes $A,B,L,\gamma_1,\gamma_2\pmod m$,
+
+\begin{align}
+&\left|\sum_d\sum_n\psi_\Delta(d)\psi_N(n)
+e_m\!\left(
+\frac{AL}{(n+Bd+\gamma_1)(n+(B+L)d+\gamma_2)}
+\right)\right|\notag\\
+&\quad\ll_{\eps_{\rm tr},\mathcal P}
+x^{\eps_{\rm tr}}(AL,m)
+\left(\frac N{\sqrt m}+\sqrt m\right)
+\left(\frac\Delta{\sqrt m}+\sqrt m\right).
+\label{eq:squarefree-trace}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Assume first that $(AL,m)=1$.  Complete in $n$ modulo $m$.  At a prime
+$p\mid m$, CRT gives the local parameter tuple
+
+\[
+ (a_p,b_p,c_p,d_p,e_{h,p})
+ =\left(B,\gamma_1,B+L,\gamma_2,h(AL)^{-1}\right)\pmod p.
+\]
+
+The two slopes differ by $-L\not\equiv0\pmod p$, the numerator character
+is nontrivial, and the Fourier parameter is unrestricted.  The local
+nondegeneracy hypotheses of
+\cite[Theorem~6.17]{PolymathEDZ2014} are therefore satisfied.  Apply
+\cref{lem:long-completion} to the completed $n$-sum and then to the
+$d$-sum.  This is precisely the squarefree, second estimate in
+\cite[Proposition~8.4]{PolymathEDZ2014}.
+
+For $g=(AL,m)$, write $m=gm'$; then $(g,m')=1$ and
+$(AL/g,m')=1$.  If $D$ is the product of the two denominators, zero
+extension gives
+
+\[
+ \mathfrak e_m^{(0)}(AL;D)
+ =\mathfrak e_{m'}^{(0)}(AL/g;D)
+ \sum_{c\mid g}\mu(c)\1_{c\mid D},
+\]
+
+whereas the projective convention simply deletes the trivial local factors.
+For squarefree $c$, the condition $c\mid D$ occupies at most
+$2^{\omega(c)}c$ pairs of residue classes modulo $c$.  Substitute
+$n=cn'+n_0$ and $d=cd'+d_0$ in each pair and apply the coprime estimate
+with scales $N/c,\Delta/c$ and modulus $m'$.  If a reduced scale is below
+one, direct counting gives the same four-term majorant.  Summing over
+$c\mid g$ costs $3^{\omega(g)}=x^{o(1)}$ and yields
+
+\[
+ \frac{N\Delta}{m'}+gN+g\Delta+g^2m'
+ \ll g\left(\frac N{\sqrt m}+\sqrt m\right)
+ \left(\frac\Delta{\sqrt m}+\sqrt m\right).
+\]
+
+This proves the result under either convention.
+\end{proof}
+
+\begin{lemma}[Congruence-restricted trace bound]
+\label{lem:congruence-trace}
+Under the hypotheses of \cref{lem:squarefree-trace}, let $q\mid m$ and
+restrict $d,n$ to fixed residue classes modulo $q$.  Then
+
+\begin{align}
+&\left|\sum_{d\equiv d_*\ (q)}\sum_{n\equiv n_*\ (q)}
+\psi_\Delta(d)\psi_N(n)
+e_m\!\left(\frac{AL}{(n+Bd)(n+(B+L)d)}\right)\right|\notag\\
+&\quad\ll_{\eps_{\rm tr},\mathcal P}
+\frac{x^{\eps_{\rm tr}}(AL,m)}q
+\left(\frac N{\sqrt m}+\sqrt m\right)
+\left(\frac\Delta{\sqrt m}+\sqrt m\right).
+\label{eq:congruence-trace}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Write $d=qd'+d_*$, $n=qn'+n_*$, and $m=qm_1$.  Since $m$ is
+squarefree, $(q,m_1)=1$.  The $q$-component is constant; modulo $m_1$
+the phase has the same form, with its numerator multiplied by the unit
+$\bar q^3$.  Apply \cref{lem:squarefree-trace} at scales $N/q,\Delta/q$
+and modulus $m/q$.  The identity
+
+\[
+ \frac{N/q}{\sqrt{m/q}}+\sqrt{m/q}
+ =q^{-1/2}\left(\frac N{\sqrt m}+\sqrt m\right)
+\]
+
+in both variables produces the factor $1/q$.  Direct counting covers a
+subunit reduced scale.
+\end{proof}
+

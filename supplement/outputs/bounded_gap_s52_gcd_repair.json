@@ -1,0 +1,43 @@
+{
+  "allChecksPass": true,
+  "application": {
+    "allRepairedQ0ExponentsNonpositive": true,
+    "etaGainInSecondBranch": -100,
+    "newLoss": "1 + K/T up to an absolute factor",
+    "oldNormalization": "gcd(w2,m)*T",
+    "originalResidualQ0Exponents": [
+      -3,
+      -6,
+      -5,
+      -8,
+      -7,
+      -10,
+      -6,
+      -9
+    ],
+    "repairedResidualQ0Exponents": [
+      -2,
+      -5,
+      -4,
+      -7,
+      -6,
+      -9,
+      -5,
+      -8
+    ]
+  },
+  "casesChecked": 40294800,
+  "claimBoundary": "The exhaustive check guards the implementation; Lemma 4.7's divisor expansion is the proof.",
+  "explicitBound": "tau(m) * (2*gcd(A,m)*K + T)",
+  "maximizer": {
+    "A": -10,
+    "B": -10,
+    "K": 0,
+    "T": 1,
+    "lhs": 1,
+    "m": 1,
+    "rhs": 1
+  },
+  "maximumLhsOverRhs": 1.0,
+  "name": "finite regression audit for the S52 gcd-average repair"
+}

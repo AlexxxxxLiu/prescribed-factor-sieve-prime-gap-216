@@ -1,0 +1,306 @@
+\section{Terminal trace estimate and quantitative closure}
+\label{sec:closure}
+
+We now insert the trace estimate from \cref{sec:terminal} into the last sum
+of the descent.  This section also retains both branches of $\Delta^*$ and
+checks all powers of the common factor $q_0$.
+
+\subsection{The raw terminal bound}
+
+For a retained $k$, put
+
+\begin{equation}\label{eq:Gk}
+ G_k=(S_k,m),
+ \qquad S_k=\frac{z_1}{w_1}k+(\lambda-\widetilde\lambda)B.
+\end{equation}
+
+\begin{lemma}[Terminal estimate and cancellation of $q_3$]
+\label{lem:terminal-cancellation}
+Uniformly over every descendant in \cref{eq:Sigma8},
+
+\begin{align}
+ \Sigma_8(k)
+ \ll{}&
+ \frac{x^{\eps_{\rm tr}}G_k}{q_0q_3}
+ \left(\frac N{\sqrt m}+\sqrt m\right)
+ \left(\frac{\Delta^*}{\sqrt m}+\sqrt m\right).
+ \label{eq:Sigma8-terminal}
+\end{align}
+
+Consequently
+
+\begin{align}
+ \Sigma_6(k)
+ \ll{}&
+ \frac{x^{3\eta}G_k}{q_0}
+ \frac{\Delta_1}{\Delta^*}
+ \left(\frac N{\sqrt m}+\sqrt m\right)
+ \left(\frac{\Delta^*}{\sqrt m}+\sqrt m\right).
+ \label{eq:Sigma6-raw}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Apply \cref{lem:congruence-trace} to \cref{eq:Sigma8} with
+$q=q_0q_3$.  This divisor is squarefree by
+\cref{lem:prime-support}.  The numerator is $w_2A_1L_1$ and
+\cref{eq:L1} gives
+
+\[
+ (w_2A_1L_1,m)=(A_1A_2S_k,m)=G_k.
+\]
+
+The scale inequalities $N_2\le N$, $\Delta_2/z_1\le\Delta^*$ then give
+\cref{eq:Sigma8-terminal}.
+
+Insert this estimate into \cref{eq:Sigma7-to-8}.  Its factor $q_3$ cancels
+the denominator $q_3$ exactly; this cancellation occurs before any gcd
+averaging.  Then use \cref{eq:Sigma6-to-7}.  Since
+$2\eta+\eps_{\rm tr}+o(1)<3\eta$ for sufficiently large $x$, the result is
+\cref{eq:Sigma6-raw}.
+\end{proof}
+
+\subsection{The gcd average without
+\texorpdfstring{$T\ge K$}{T >= K}}
+
+The range \cref{eq:k-range} and the condition $w_2\mid k$ lead to
+$k=w_2k_1$ and
+
+\begin{equation}\label{eq:K1}
+ |k_1|\le K_1\ll
+ \frac{w_1|\Lambda|N}{x^{5\eta}w_2\Delta_1}.
+\end{equation}
+
+Because $(z_1/w_1,m)=1$,
+
+\begin{equation}\label{eq:linear-gcd-coeff}
+ \left((z_1/w_1)w_2,m\right)=(w_2,m)=t.
+\end{equation}
+
+The elementary \cref{lem:gcd-average} therefore gives
+
+\begin{equation}\label{eq:Gk-average}
+ \sum_{\substack{|k_1|\le K_1\\G_{w_2k_1}\le T}}
+ G_{w_2k_1}
+ \le \tau(m)(2tK_1+T).
+\end{equation}
+
+No comparison between $K_1$ and $T$ is assumed.  From
+\cref{eq:Z5-ranges-c,eq:tT},
+
+\begin{equation}\label{eq:K-over-T}
+ \frac{K_1}{T}
+ \ll S_x^{O(1)}q_0x^{-100\eta}
+ \frac{\min\{t,H\}}{w_2}
+ \le S_x^{O(1)}q_0x^{-100\eta}.
+\end{equation}
+
+Define
+
+\begin{equation}\label{eq:Lloss}
+ \mathcal L=1+K_1/T.
+\end{equation}
+
+Since $m\le x^7$, the standard divisor bound gives
+$\tau(m)\ll_\eta x^\eta$.  Dividing \cref{eq:Gk-average} by a sufficiently
+large constant times $x^\eta tT\mathcal L$ produces nonnegative weights
+$\xi_k$ with total mass at most one.  Hence \cref{eq:Sigma6-raw} may be
+written
+
+\begin{align}
+ \Sigma_6(k)\ll{}&\xi_k\mathcal L
+ \frac{x^{4\eta}tT}{q_0}
+ \frac{\Delta_1}{\Delta^*}
+ \left(\frac N{\sqrt m}+\sqrt m\right)
+ \left(\frac{\Delta^*}{\sqrt m}+\sqrt m\right).
+ \label{eq:Sigma6-normalized}
+\end{align}
+
+The loss $\mathcal L$ appears once.  There is no later Cauchy--Schwarz step
+that squares it.
+
+\subsection{The genuine short scale}
+
+The minimum in \cref{eq:Delta-star} cannot be replaced by $\Delta_1$.
+Using \cref{eq:Z5-ranges-c} gives
+
+\[
+ \frac{N}{|\Lambda|x^{5\eta}}
+ \gg\frac{w_1gN}{q_0x^{\delta+10\eta}H^2}.
+\]
+
+Together with \cref{eq:Delta1} and the harmless preprocessing losses this
+proves, for one absolute $C_0$,
+
+\begin{equation}\label{eq:Delta-star-lower}
+ \Delta^*\gg S_x^{-C_0}
+ \frac{N}{q_0^2x^{\delta+55\eta}H^2}.
+\end{equation}
+
+For the term containing both $\Delta_1$ and $\Delta^*$ we use the exact
+identity
+
+\begin{equation}\label{eq:Delta-star-branches}
+ \frac1{\Delta_1\Delta^*}
+ =\max\left\{
+ \frac{|\Lambda|x^{5\eta}}{N\Delta_1},
+ \frac1{\Delta_1^2}
+ \right\}.
+\end{equation}
+
+\subsection{The exponent ledger}
+
+Set
+
+\begin{equation}\label{eq:Bfactor}
+ \mathcal B=\min\left\{
+ \frac1{q_0^2x^{\delta+10\eta}H^3},
+ \frac1{H^4}
+ \right\}.
+\end{equation}
+
+After substituting $T$ from \cref{eq:tT} into
+\cref{eq:Sigma6-normalized}, the bound required in
+\cref{eq:Sigma6-target} follows once each of
+
+\begin{equation}\label{eq:three-terminal-terms}
+ \frac{N\Delta^*}{m},\qquad N,\qquad m
+\end{equation}
+
+is at most
+
+\begin{equation}\label{eq:terminal-RHS}
+ \frac{\Delta^*}{\Delta_1}\mathcal B
+ \frac{gq_0^2g_0N\Delta_1}{x^{\delta+131\eta}H^2}.
+\end{equation}
+
+Indeed, expanding the two completion factors gives
+
+\[
+ \left(\frac N{\sqrt m}+\sqrt m\right)
+ \left(\frac{\Delta^*}{\sqrt m}+\sqrt m\right)
+ =\frac{N\Delta^*}{m}+N+\Delta^*+m,
+\]
+
+and $\Delta^*\le N$ absorbs the third summand into the second.
+
+After cancelling \cref{eq:terminal-RHS}, define
+
+\begin{align}
+ E_1&=\frac{x^{\delta+131\eta}}{gq_0^2g_0m}
+ \max\{q_0^2x^{\delta+10\eta}H^5,H^6\},\notag\\
+ E_2&=\frac{x^{\delta+131\eta}}{gq_0^2g_0\Delta^*}
+ \max\{q_0^2x^{\delta+10\eta}H^5,H^6\},\notag\\
+ E_3&=\frac{mx^{\delta+131\eta}}{gq_0^2g_0N\Delta^*}
+ \max\{q_0^2x^{\delta+10\eta}H^5,H^6\}.
+ \label{eq:E123}
+\end{align}
+
+Thus it suffices to prove $\mathcal LE_j\ll1$ for $j=1,2,3$.
+
+From the upper bound for $\Delta_1$, the lower bound for $m$, and
+$RQ^2=x^{-\eta}q_0MH$, one obtains
+
+\begin{equation}\label{eq:m-lower-ledger}
+ m\gg\frac{q_0^2x^{54\eta}MH^4}{gN}.
+\end{equation}
+
+Using $M\asymp x/N$ and
+$H\ll q_0^{-1}x^{4\omega+\delta+7\eta}$, the two branches of $E_1$ are
+
+\begin{equation}\label{eq:E1-ledger}
+ E_1\ll
+ x^{-1+2\gamma+4\omega+3\delta+94\eta}
+ +x^{-1+2\gamma+8\omega+3\delta+91\eta}.
+\end{equation}
+
+The lower bound \cref{eq:Delta-star-lower} gives
+
+\begin{equation}\label{eq:E2-ledger}
+ E_2\ll S_x^{O(1)}\left(
+ x^{28\omega+10\delta-\gamma+245\eta}
+ +x^{32\omega+10\delta-\gamma+242\eta}
+ \right).
+\end{equation}
+
+For $E_3$, the upper bound for $m$ first gives
+
+\begin{equation}\label{eq:m-upper-ledger}
+ m\ll\frac{q_0x^{\delta-\eta}MH^2}{g\Delta_1}.
+\end{equation}
+
+The two exact alternatives in \cref{eq:Delta-star-branches} satisfy
+
+\begin{align}
+ \frac{|\Lambda|x^{5\eta}}{N\Delta_1}
+ &\ll\frac{q_0^3x^{2\delta+65\eta}H^4}{N^2},
+ \label{eq:branch-Lambda}\\
+ \frac1{\Delta_1^2}
+ &\ll\frac{q_0^4x^{2\delta+110\eta}H^4}{N^2}.
+ \label{eq:branch-Delta}
+\end{align}
+
+Substitution in $E_3$ gives four branches:
+
+\begin{align}
+ E_3\ll S_x^{O(1)}\bigl(&
+ x^{1+44\omega+16\delta-4\gamma+282\eta}
+ +x^{1+48\omega+16\delta-4\gamma+279\eta}\notag\\
+ &+x^{1+44\omega+16\delta-4\gamma+327\eta}
+ +x^{1+48\omega+16\delta-4\gamma+324\eta}
+ \bigr).
+ \label{eq:E3-ledger}
+\end{align}
+
+Before dropping nonpositive factors, the residual powers of $q_0$ in the
+eight branches of \cref{eq:E1-ledger,eq:E2-ledger,eq:E3-ledger} are
+
+\begin{equation}\label{eq:q0-ledger}
+ -3,-6,-5,-8,-7,-10,-6,-9.
+\end{equation}
+
+The second term of $\mathcal L$ in \cref{eq:K-over-T} adds one to each
+power of $q_0$ and subtracts $100\eta$ from its power of $x$.  The powers
+become
+
+\[
+ -2,-5,-4,-7,-6,-9,-5,-8,
+\]
+
+and remain nonpositive.  Hence $\mathcal L$ introduces no new parameter
+condition.
+
+The $\eta$-free exponents in \cref{eq:E1-ledger,eq:E2-ledger,eq:E3-ledger}
+are bounded respectively by
+
+\begin{equation}\label{eq:three-margins}
+ -1+8\omega+4\delta+2\gamma,\qquad
+ 32\omega+10\delta-\gamma,\qquad
+ 1+48\omega+16\delta-4\gamma.
+\end{equation}
+
+They are strictly negative by
+\cref{eq:S52-a,eq:S52-b,eq:S52-c}.  The choice
+\cref{eq:eta-choice} absorbs every displayed coefficient of $\eta$, the
+fixed $S_x^{O(1)}=x^{o(1)}$ losses, and $\eps_{\rm tr}$.  Therefore
+$\mathcal LE_j\ll1$ for all three $j$.
+
+\begin{proposition}[Uniform duplicated prescribed-factor estimate]
+\label{prop:duplicated-S52}
+For every admissible outer localization,
+
+\begin{equation}\label{eq:duplicated-conclusion}
+ \Sigma_1^\sharp\ll g_0RQNUV^2x^{-4\eta},
+\end{equation}
+
+uniformly in all outer variables and all compatible descendant choices.
+\end{proposition}
+
+\begin{proof}
+The exponent ledger proves the pointwise estimate
+\cref{eq:Sigma6-target} with the normalized weights from
+\cref{eq:Sigma6-normalized}.  Apply
+\cref{lem:remove-ntilde,lem:diagonal-removal,lem:qvdc-supported,lem:prepared-factor}
+in that order.  Uniformity of every trace and Taylor constant follows from
+\cref{lem:finite-jet}.  This yields \cref{eq:duplicated-conclusion}.
+\end{proof}

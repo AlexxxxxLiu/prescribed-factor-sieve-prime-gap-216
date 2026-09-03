@@ -1,0 +1,882 @@
+\section{The supported local descent}
+\label{sec:descent}
+
+This section expands the middle of the argument.  In particular, none of the
+implications below is justified by saying that the proof for smooth moduli is
+unchanged.  We retain the support needed at the next stage, state every
+enlargement in the direction in which it is used, and record its loss.
+
+Fix one nonempty outer localization.  Thus $Q,R,q_0,H,H^*,U,V$ satisfy
+\cref{eq:H,eq:UV,eq:Delta1}, with $1\le H^*\ll H$, and put
+
+\begin{equation}\label{eq:g-g0}
+ g=(v_1,v_2),\qquad g_0=(q_0,\ell),\qquad
+ v_i=gv_i^*,\qquad (v_1^*,v_2^*)=1.
+\end{equation}
+
+All coefficient sequences in this section are bounded by
+$(\log x)^{O(1)}$.  Such factors, as well as a fixed number of dyadic
+partitions, are written as $x^{o(1)}$.  Since $\eta$ is fixed, each of them
+is smaller than $x^{\eta/100}$ for sufficiently large $x$.
+
+\subsection{Preparation and the first phase identity}
+
+Choose the witness $d_1\mid r$ before duplicating any variable, write
+$r=d_1r_1$, and localize $d_1\asymp\Delta$.  In the notation of
+\cref{lem:second-factor},
+
+\begin{equation}\label{eq:Delta-range-descent}
+ S_x^{-2}\frac{N}{q_0^2x^{\delta+50\eta}H^2}
+ \ll\Delta\ll
+ \frac{N}{q_0^2x^{50\eta}H^2},
+ \qquad \Delta_1=\Delta x^{-5\eta}.
+\end{equation}
+
+For fixed $r_1,u_1,v_1,v_2,q_2,d_0$, let $\Sigma_2$ denote
+
+\begin{align}
+\Sigma_2={}&
+ \sum_{\substack{d\\(d,m)=1\\d\ {\rm squarefree}}}
+ \psi_{\Delta_1}(d-d_0)
+ \Bigg|
+ \sum_{\substack{h_1,h_2\sim H^*\\h_1v_2\ne h_2v_1}}
+ \sum_{n}^{\dagger}
+ C(n;d)\psi_N(n)\notag\\[-1mm]
+ &\hspace{23mm}\times
+ \varphi_1(h_1)\overline{\varphi_2(h_2)}
+ \Psi(n,h_1,h_2;d)
+ \Bigg|,
+ \label{eq:Sigma2}
+\end{align}
+
+where
+
+\begin{equation}\label{eq:dagger2}
+ m=r_1q_0u_1[v_1,v_2]q_2,\qquad
+ (n,dr_1q_0u_1v_1v_2)=1,\qquad
+ (n+\ell dr_1,q_0q_2)=1.
+\end{equation}
+
+The indicator $C(n;d)$ is supported on at most $g_0$ classes of $n$ modulo
+$q_0$ for each class of $d$ modulo $q_0$.
+
+\begin{lemma}[Prepared-factor implication]\label{lem:prepared-factor}
+Uniformly in the fixed outer data, the estimate
+
+\begin{equation}\label{eq:Sigma2-target}
+ \Sigma_2\ll q_0g_0\Delta Ngx^{-10\eta}
+\end{equation}
+
+implies
+
+\begin{equation}\label{eq:Sigma1-target}
+ \Sigma_1^\sharp\ll g_0RQNUV^2x^{-4\eta}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Grouping the original $r$-sum according to $r=d_1r_1$, followed by dyadic
+localization, gives
+
+\begin{equation}\label{eq:prep-group}
+ \Sigma_1^\sharp
+ \ll x^{\eta/2}\frac{RUQ}{q_0\Delta}
+ \sup_{\Delta,r_1,u_1,q_2}\Upsilon_0.
+\end{equation}
+
+This is a counting step: the number of choices of the frozen variables is
+$O(x^{\eta/2}RUQ/(q_0\Delta))$ after the usual divisor-weight
+enlargement.  No factor of a prescribed size is chosen here; the factor was
+already supplied by $d_1(r)$.
+
+Separate the relation $h_1v_2=h_2v_1$.  Since
+$H^*\ll H\le x^{-5\eta}V$ by \cref{eq:UV}, the number of solutions to that
+relation is $O(x^{o(1)}H^*V)$, and its contribution is
+
+\begin{equation}\label{eq:first-diagonal}
+ \Upsilon_{0,=}
+ \ll x^{o(1)}\Delta H^*VN
+ \ll x^{-5\eta+o(1)}\Delta NV^2.
+\end{equation}
+
+For the complementary part, cover $d\asymp\Delta$ by
+$O(x^{5\eta})$ shifted smooth intervals of length $\Delta_1$.  After the
+outer absolute value has been taken, deleting the original family-membership
+indicators and the fixed coefficient of modulus at most one can only increase
+the sum.  The remaining squarefree and coprimality conditions are exactly
+those in \cref{eq:Sigma2}.  Thus \cref{eq:Sigma2-target} and
+
+\begin{equation}\label{eq:gcd-v-average}
+ \sum_{v_1\asymp V}\sum_{v_2\asymp V}(v_1,v_2)
+ \ll V^2(\log V)^{O(1)}
+\end{equation}
+
+give
+
+\[
+ \Upsilon_{0,\ne}
+ \ll q_0g_0\Delta NV^2x^{-5\eta+o(1)}.
+\]
+
+The right side of \cref{eq:first-diagonal} is smaller than this admissible
+majorant.  Insert the result in \cref{eq:prep-group}; the factors $q_0$ and
+$\Delta$ cancel, and the powers $x^{\eta/2}$ and
+$x^{-5\eta+o(1)}$ leave at least $x^{-4\eta}$.  This proves
+\cref{eq:Sigma1-target}.
+\end{proof}
+
+\begin{lemma}[CRT phase factorization]\label{lem:phase-factorization}
+Under the support conditions in \cref{lem:prime-support}, there are residue
+classes $A,B\pmod m$, independent of $n,d,h_1,h_2$, such that $(A,m)=1$
+and, with $y=h_1v_2^*-h_2v_1^*$,
+
+\begin{equation}\label{eq:phase-factorization}
+ \Psi(n,h_1,h_2;d)
+ =e_d\!\left(
+   \frac{ay}{nr_1q_0u_1gv_1^*v_2^*q_2}
+  \right)
+  e_m\!\left(\frac{Ay}{d(n+Bd)}\right).
+\end{equation}
+
+One may choose $A,B$ by
+
+\begin{align}
+ A&\equiv a\pmod{r_1},& B&\equiv0\pmod{r_1},\notag\\
+ A&\equiv b_1\pmod{q_0u_1gv_1^*v_2^*},&
+ B&\equiv0\pmod{q_0u_1gv_1^*v_2^*},\notag\\
+ A&\equiv b_2\pmod{q_2},& B&\equiv\ell r_1\pmod{q_2}.
+ \label{eq:AB-CRT}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+By \cref{lem:prime-support}, the three moduli in
+\cref{eq:AB-CRT} are pairwise coprime and their product is $m$.
+The Chinese remainder theorem therefore defines $A$ and $B$ uniquely modulo
+$m$.  Splitting each additive character of the duplicated phase over the
+prime-support decomposition and collecting the $d$-component gives the first
+factor in \cref{eq:phase-factorization}; collecting the remaining components
+gives the second.  The residue $A$ is a unit because $a,b_1,b_2$ are units on
+their respective support factors.  This proves the identity and every
+inverse appearing in it is legitimate.
+\end{proof}
+
+\subsection{The algebraic \texorpdfstring{$q$}{q}-van der Corput step}
+
+Put
+
+\begin{equation}\label{eq:Yset}
+ \mathscr Y=\{h_1v_2^*-h_2v_1^*:h_1,h_2\sim H^*\}.
+\end{equation}
+
+For a nonzero $y\in\mathscr Y$, set
+
+\[
+ w_1=(y,d),\qquad w_2=(y,m^*),\qquad
+ m^*=m^{\lfloor2\log x\rfloor}.
+\]
+
+After dyadic localization write $w_1\asymp W_1$ and $y\sim Y$, where
+
+\begin{equation}\label{eq:WY-ranges}
+ 1\ll W_1\ll\Delta,\qquad
+ 1\ll |Y|\ll\frac{H^*V}{g}.
+\end{equation}
+
+For $w_0\mid w_1$, define
+
+\begin{equation}\label{eq:K3-def}
+ \mathscr K_3(n,\widetilde n;y,\widetilde y,d)
+ :=e_m\!\left(
+ \frac{A\{y(\widetilde n+Bd)-\widetilde y(n+Bd)\}}
+ {d(n+Bd)(\widetilde n+Bd)}
+ \right).
+\end{equation}
+
+\begin{align}
+\Sigma_3:={}&
+ \sum_{\substack{y,\widetilde y\in\mathscr Y\\
+ y,\widetilde y\sim Y\\w_1\mid(y,\widetilde y)\\
+ (y,m^*)=(\widetilde y,m^*)=w_2}}
+ \Bigg|
+ \sum_{\substack{d\\w_0w_1\mid d\\
+ (d/w_1,my\widetilde y/w_1^2)=1}}
+ \psi_{\Delta_1}(d-d_0)\notag\\[-1mm]
+&\hspace{17mm}\times
+ \sum_{\substack{n,\widetilde n\\
+ y\widetilde n\equiv\widetilde yn\ (d)}}^{\dagger_3}
+ C(n;d)C(\widetilde n;d)\psi_N(n)\psi_N(\widetilde n)\notag\\[-1mm]
+&\hspace{30mm}\times
+ \mathscr K_3(n,\widetilde n;y,\widetilde y,d)
+ \Bigg|,
+ \label{eq:Sigma3}
+\end{align}
+
+where $\dagger_3$ retains
+
+\begin{equation}\label{eq:dagger3}
+ (n\widetilde n,w_1r_1q_0u_1v_1v_2)=1,\qquad
+ ((n+\ell dr_1)(\widetilde n+\ell dr_1),q_0q_2)=1.
+\end{equation}
+
+\begin{lemma}[Supported $q$-van der Corput inequality]
+\label{lem:qvdc-supported}
+For some admissible $W_1,Y,w_0,w_1,w_2$,
+
+\begin{equation}\label{eq:qvdc-bound}
+ \Sigma_2\ll x^{3.5\eta+o(1)}g\Delta\,\Sigma_3^{1/2}.
+\end{equation}
+
+Consequently
+
+\begin{equation}\label{eq:Sigma3-target}
+ \sup\Sigma_3\ll q_0^2g_0^2N^2x^{-27\eta}
+\end{equation}
+
+implies \cref{eq:Sigma2-target}.
+\end{lemma}
+
+\begin{proof}
+On a fixed $d$, partition the inner sum by
+$yn^{-1}\pmod d$.  In \cref{eq:phase-factorization} the $e_d$ factor then
+depends only on that residue class and disappears after absolute values.
+Retain $d$ squarefree until $w_1=(y,d)$ is fixed.  It follows that $w_1$ is
+squarefree and $(w_1,m)=1$.
+
+Only $x^{o(1)}$ values of $w_2$ occur.  Indeed, a nonempty block has
+$w_2\le |y|\le x^{C_1}$ for a fixed $C_1$.  If
+$m=P_1\cdots P_r$ with $P_1<\cdots<P_r$, replace each $P_j$ by the
+$j$-th prime.  This injects the possible divisors of $m^*$ below $x^{C_1}$
+into the $p_r$-smooth integers below that bound.  Since $m\le x^{C_*}$ is
+squarefree, $r=O(\log x/\log\log x)$ and $p_r=O(\log x)$.  Rankin's
+bound with $\sigma=1/\log p_r$ gives
+
+\[
+ \#\{w_2:w_2\mid m^*,\ w_2\le x^{C_1}\}
+ \le x^{C_1\sigma}\prod_{p\le p_r}(1-p^{-\sigma})^{-1}
+ =x^{o(1)}.
+\]
+
+Dyadic decomposition in $w_1$ and $y$ and the sum over residue classes cost
+at most $x^{2\eta+o(1)}W_1$.  Enlarge the squarefree $d$-sum to the
+conditions $w_1\mid d$ and $(d/w_1,w_1)=1$.  The congruence
+$yn^{-1}\pmod d$ can then be inverted modulo $d/w_1$.  Replacing
+$(n,d)=1$ by the weaker $(n,w_1)=1$ is a nonnegative enlargement.
+
+Cauchy--Schwarz in the residue class and $d$ variables contributes
+\[
+ x^{\eta/2}\Delta/W_1.
+\]
+The preceding factor $W_1$ cancels.  The accumulated factor is
+$x^{2.5\eta+o(1)}\Delta$.  The two copied
+congruences combine to
+
+\[
+ y\widetilde n\equiv\widetilde yn\pmod d.
+\]
+
+For fixed $y$, the equation $y=h_1v_2^*-h_2v_1^*$ has at most $O(g)$
+solutions in $h_1,h_2\sim H^*$: all solutions differ by
+$(kv_1^*,kv_2^*)$.  Applying this to $y$ and $\widetilde y$ and then taking
+the square root contributes $gx^{\eta/2+o(1)}$.  Finally
+
+\[
+ 1_{(d/w_1,w_1)=1}
+ =\sum_{w_0\mid(d/w_1,w_1)}\mu(w_0)
+\]
+
+and the divisor count of the squarefree $w_1$ contributes another
+$x^{\eta/2+o(1)}$.  The resulting inner expression is exactly
+\cref{eq:Sigma3}, proving \cref{eq:qvdc-bound}.  Taking the square root of
+\cref{eq:Sigma3-target} leaves
+$q_0g_0Nx^{-13.5\eta}$; multiplication by the prefactor in
+\cref{eq:qvdc-bound} gives \cref{eq:Sigma2-target}.
+\end{proof}
+
+\subsection{Removal of diagonals and large gcd blocks}
+
+Let
+
+\begin{equation}\label{eq:tT}
+ t=(w_2,m),\qquad
+ T=\max\{t^{-1},H^{-1}\}
+ \frac{x^{\delta+100\eta}H^2N}{g\Delta_1}.
+\end{equation}
+
+For fixed $y,\widetilde y$, let $\Sigma_4(y,\widetilde y)$ be the inner
+absolute value in \cref{eq:Sigma3}, restricted further by
+
+\begin{equation}\label{eq:retained-gcd}
+ \left(
+ \frac{y(\widetilde n+Bd)-\widetilde y(n+Bd)}d,m
+ \right)\le T.
+\end{equation}
+
+\begin{lemma}[Diagonal and large-gcd removal]\label{lem:diagonal-removal}
+One has
+
+\begin{align}
+ \Sigma_3\ll{}&
+ \max\left\{
+ \frac{q_0^2x^{\delta+10\eta}H^3}{t},
+ \frac{H^4}{t}
+ \right\}
+ \sup_{y,\widetilde y}\Sigma_4(y,\widetilde y)
+ +x^{-47\eta}N^2.
+ \label{eq:diagonal-removal}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+By \cref{eq:WY-ranges,eq:UV},
+
+\begin{equation}\label{eq:Y-corrected}
+ |Y|\ll\frac{HV}{g}
+ \ll\frac{q_0x^{\delta+5\eta}H^2}{g}.
+\end{equation}
+
+If a divisor $q$ of the numerator in \cref{eq:retained-gcd} exceeds $T$,
+then \cref{eq:Delta1,eq:tT,eq:Y-corrected} give
+
+\begin{equation}\label{eq:Y-over-q}
+ \frac{|Y|}{q}
+ \ll q_0^{-1}x^{-150\eta}
+ \frac{\min\{t,H\}}{H^2}.
+\end{equation}
+
+We count the discarded tuples in four disjoint cases.  If
+$y=\widetilde y$ and $n=\widetilde n$, their number is
+
+\begin{equation}\label{eq:diag-1}
+ O(\Delta H^2N)
+ \ll q_0^{-2}x^{-50\eta}N^2.
+\end{equation}
+
+If $y=\widetilde y$ but $n\ne\widetilde n$, the congruence with a fixed
+$q>T$ and \cref{eq:Y-over-q} give
+
+\begin{equation}\label{eq:diag-2}
+ \max\{H^2/t,H\}N^2\frac{|Y|}{q}
+ \ll q_0^{-1}x^{-150\eta}N^2.
+\end{equation}
+
+If $n=\widetilde n$ and $y\ne\widetilde y$, split according to
+$(y-\widetilde y,dq)$.  Divisor expansion bounds the resulting two terms by
+
+\begin{equation}\label{eq:diag-3}
+ x^{\delta-144\eta+o(1)}N,
+ \qquad
+ x^{2\delta-39\eta+o(1)}H^2N.
+\end{equation}
+
+The inequalities following from \cref{eq:S52-a,eq:S52-c}, namely
+$\gamma>\delta$ and $\gamma>8\omega+4\delta$, together with
+$H\ll x^{4\omega+\delta+7\eta}/q_0$, make both terms
+$O(x^{-48\eta}N^2)$ after reducing $\eta_0$.
+
+In the fully off-diagonal case, fix $d,\widetilde n,y-\widetilde y$.  The
+defining equation leaves $O(q_0\min\{t,H\})$ possible quotient values and
+only $x^{o(1)}$ factorizations for each.  Hence this contribution is
+
+\begin{equation}\label{eq:diag-4}
+ x^{o(1)}q_0\max\{H^2/t,H\}\Delta N\min\{t,H\}
+ \ll q_0^{-1}x^{-50\eta+o(1)}N^2.
+\end{equation}
+
+The number of possible gcd divisors is $x^{o(1)}$, so
+\cref{eq:diag-1,eq:diag-2,eq:diag-3,eq:diag-4} sum to the error in
+\cref{eq:diagonal-removal}.
+
+It remains to count retained phase pairs.  The representation through
+$h_1,h_2$ gives
+
+\[
+ \#(y,\widetilde y)\ll\max\{H^4/t^2,H^2\},
+\]
+
+whereas the interval bound gives
+$\#(y,\widetilde y)\ll Y^2/t^2$.  If $t\le x^\delta H$, use the first
+estimate; if $t>x^\delta H$, use the second and
+\cref{eq:Y-corrected}.  In both cases,
+
+\begin{equation}\label{eq:retained-pairs}
+ \#(y,\widetilde y)
+ \ll\max\left\{
+ \frac{q_0^2x^{\delta+10\eta}H^3}{t},
+ \frac{H^4}{t}
+ \right\}.
+\end{equation}
+
+Multiplying the supremum of $\Sigma_4$ by this count completes the proof.
+\end{proof}
+
+\subsection{Relabelling the retained blocks}
+
+Write
+
+\begin{equation}\label{eq:relabel}
+ z_1=w_0w_1,\qquad y=w_1\lambda,\qquad
+ \widetilde y=w_1\widetilde\lambda,\qquad d=z_1e,
+ \qquad \Lambda=Y/w_1.
+\end{equation}
+
+An empty or incompatible block is discarded.  In every remaining block,
+
+\begin{gather}
+ z_1\ll x^{5\eta}\Delta_1,\qquad (z_1,m)=1,\qquad
+ w_1\mid z_1,\qquad
+ (\lambda,m^*)=(\widetilde\lambda,m^*)=w_2,
+ \label{eq:Z5-arithmetic}\\
+ H\ll q_0^{-1}x^{4\omega+\delta+7\eta},\qquad
+ x^{-4\eta-\delta}N\ll R\ll x^{-2\eta}N,
+ \label{eq:Z5-ranges-a}\\
+ x^{1/2-\eta}\ll QR\ll x^{1/2+2\omega+\eta},\qquad
+ x^{5\eta}H\ll v_i\ll q_0x^{\delta+5\eta}H,
+ \label{eq:Z5-ranges-b}\\
+ \frac{RQ^2H}{q_0g\Delta_1}\ll m
+ \ll\frac{x^\delta RQ^2H}{g\Delta_1},\qquad
+ 1\ll|\Lambda|\ll
+ \frac{q_0x^{\delta+5\eta}H^2}{w_1g}.
+ \label{eq:Z5-ranges-c}
+\end{gather}
+
+The apparent asymmetry in the two bounds for $m$ is genuine: the lower
+endpoint contains the common factor removed from the first prescribed
+divisor, whereas the upper endpoint uses only its ambient dyadic range.
+
+Replace $e$ again by $d$, and set
+
+\begin{equation}\label{eq:relabel-rest}
+ \begin{aligned}
+ l&=\ell z_1r_1,&
+ c_1&=r_1q_0u_1[v_1,v_2],& c_2&=q_0q_2,\\
+ A&\leftarrow Aw_1/z_1,&
+ B&\leftarrow Bz_1.
+ \end{aligned}
+\end{equation}
+
+All quotients in \cref{eq:relabel-rest} are units modulo $m$.
+The retained sum becomes
+
+\begin{align}
+\Sigma_5={}&\Bigg|
+ \sum_{(d,m\lambda\widetilde\lambda)=1}
+ \psi_{\Delta_1}(z_1d-d_0)
+ \sum_{n,\widetilde n}^{\dagger_5}
+ C(n;d)C(\widetilde n;d)\psi_N(n)\psi_N(\widetilde n)
+ \notag\\[-1mm]
+&\hspace{12mm}\times
+ e_m\!\left(
+ \frac{A\{\lambda(\widetilde n+Bd)-
+ \widetilde\lambda(n+Bd)\}}
+ {d(n+Bd)(\widetilde n+Bd)}
+ \right)\Bigg|,
+ \label{eq:Sigma5}
+\end{align}
+
+where $\dagger_5$ means
+
+\begin{gather}
+ (n\widetilde n,w_1c_1)=1,\qquad
+ ((n+ld)(\widetilde n+ld),c_2)=1,
+ \label{eq:dagger5-a}\\
+ \lambda\widetilde n\equiv\widetilde\lambda n
+ \pmod{z_1d/w_1},\qquad
+ \left(
+ \frac{\lambda(\widetilde n+Bd)-\widetilde\lambda(n+Bd)}d,m
+ \right)\le T.
+ \label{eq:dagger5-b}
+\end{gather}
+
+Equations \cref{eq:relabel,eq:relabel-rest} are reversible on each nonempty
+block, so $\Sigma_4=\Sigma_5$.  Combining
+\cref{eq:diagonal-removal,eq:Sigma3-target} shows that it is enough to prove
+
+\begin{equation}\label{eq:Sigma5-target}
+ \Sigma_5\ll
+ \min\left\{\frac{t}{q_0^2x^{\delta+10\eta}H^3},
+              \frac{t}{H^4}\right\}
+ q_0^2g_0^2N^2x^{-27\eta}.
+\end{equation}
+
+\subsection{First elimination: the copied variable}
+
+The congruence in \cref{eq:dagger5-b} is equivalent to
+
+\begin{equation}\label{eq:ntilde-param}
+ \widetilde n=
+ \frac{\widetilde\lambda n+k(z_1/w_1)d}{\lambda}
+\end{equation}
+
+for an integer $k$.  The supports of the two $N$-scale profiles and of the
+$\Delta_1$-scale profile imply
+
+\begin{equation}\label{eq:k-range}
+ |k|\ll K_0:=\frac{w_1|\Lambda|N}{x^{5\eta}\Delta_1}.
+\end{equation}
+
+Put
+
+\begin{equation}\label{eq:S-k}
+ S_k=\frac{z_1}{w_1}k+(\lambda-\widetilde\lambda)B.
+\end{equation}
+
+For shifted smooth profiles $\psi_N^*,\psi_{\Delta_1}^*$ and residue
+classes $d_*,n_*\pmod{q_0}$, define
+
+\begin{align}
+\Sigma_6(k):={}&\Bigg|
+ \sum_{\substack{d\equiv d_*\ (q_0)\\
+ (d,m\lambda\widetilde\lambda)=1}}
+ \psi_{\Delta_1}^*(z_1d-d_0)
+ \sum_{\substack{n\equiv n_*\ (q_0)\\
+ \lambda\mid\widetilde\lambda n+k(z_1/w_1)d}}^{\dagger_6}
+ \psi_N^*(n)
+ \notag\\[-1mm]
+&\hspace{12mm}\times
+ e_m\!\left(
+ \frac{AS_k}
+ {(n+Bd)
+  \{\lambda^{-1}(\widetilde\lambda n+k(z_1/w_1)d)+Bd\}}
+ \right)\Bigg|,
+ \label{eq:Sigma6}
+\end{align}
+
+where $\dagger_6$ retains the four coprimality conditions obtained by
+substituting \cref{eq:ntilde-param} into \cref{eq:dagger5-a}.
+
+\begin{lemma}[Elimination of $\widetilde n$]\label{lem:remove-ntilde}
+If nonnegative weights $\xi_k$ satisfy
+
+\begin{equation}\label{eq:xi-mass}
+ \sum_{\substack{|k|\ll K_0\\w_2\mid k\\(S_k,m)\le T}}\xi_k\ll1
+\end{equation}
+
+and, uniformly in the profiles and residue classes,
+
+\begin{equation}\label{eq:Sigma6-target}
+ \Sigma_6(k)\ll \xi_k
+ \min\left\{\frac{t}{q_0^2x^{\delta+10\eta}H^3},
+              \frac{t}{H^4}\right\}
+ q_0g_0N^2x^{-27\eta},
+\end{equation}
+
+then \cref{eq:Sigma5-target} holds.
+\end{lemma}
+
+\begin{proof}
+Substitution of \cref{eq:ntilde-param} in the phase gives exactly
+\cref{eq:S-k,eq:Sigma6}.  For the copied smooth weight, write
+
+\begin{align}
+ &\psi_N\!\left(
+ \frac{\widetilde\lambda n+k(z_1/w_1)d}{\lambda}
+ \right)\notag\\
+ &\quad=
+ \sum_{j=0}^{J}\frac1{j!}
+ \left(\frac{(k/w_1)(z_1d-d_0)}{\lambda N}\right)^j
+ \psi^{(j)}\!\left(
+ \frac{\widetilde\lambda n+(k/w_1)d_0}{\lambda N}
+ \right)+O(x^{-100}),
+ \label{eq:Taylor-one}
+\end{align}
+
+where $J=\lceil20/\eta\rceil$.  On the support of the sum, the expansion
+parameter is at most $x^{-5\eta}$ by \cref{eq:k-range}.  Each summand in
+\cref{eq:Taylor-one} is a product of one smooth $N$-profile in $n$ and one
+shifted smooth $\Delta_1$-profile in $z_1d-d_0$.  The remainder contributes
+$O(x^{-90})$ after trivial summation.
+
+For fixed $k$, the two indicators $C(n;d)$ and
+$C(\widetilde n;d)$ are constant after $d,n$ are fixed modulo $q_0$.
+There are at most $q_0g_0$ contributing pairs of residue classes.  Moreover,
+the divisibility condition in \cref{eq:Sigma6} forces $w_2\mid k$: both
+$\lambda$ and $\widetilde\lambda$ are divisible by $w_2$, whereas
+$(z_1d/w_1,w_2)=1$.  Summing \cref{eq:Sigma6-target} over $k$ and using
+\cref{eq:xi-mass} supplies the missing factor $q_0g_0$, and proves
+\cref{eq:Sigma5-target}.  The Taylor remainder is smaller than the target by
+the fixed parameter reserve.
+\end{proof}
+
+\subsection{Second elimination: the divisibility by
+\texorpdfstring{$\lambda$}{lambda}}
+
+Let
+
+\begin{equation}\label{eq:lambda-star}
+ \lambda^*=(|\lambda|,|\widetilde\lambda|),\qquad
+ a_\lambda=\lambda/\lambda^*,\qquad
+ b_\lambda=\widetilde\lambda/\lambda^*.
+\end{equation}
+
+By \cref{lem:valuation}, $a_\lambda$ and $b_\lambda$ are units modulo $m$.
+We write $\bar a_\lambda,\bar b_\lambda$ for their inverses modulo $m$.
+Likewise, $\overline{\widetilde\lambda/w_2}$ denotes the inverse of
+$\widetilde\lambda/w_2$ modulo $m$.
+
+If $\lambda^*\nmid(z_1/w_1)k$, then \cref{eq:Sigma6} is empty.  Otherwise
+there are residue classes $F_k,G_k$ such that
+
+\begin{equation}\label{eq:n-n1}
+ n=a_\lambda n_1+F_kd,\qquad
+ \widetilde n=b_\lambda n_1+G_kd.
+\end{equation}
+
+They satisfy
+
+\begin{equation}\label{eq:FG-relation}
+ \bar b_\lambda(G_k+B)-\bar a_\lambda(F_k+B)
+ \equiv
+ \bar a_\lambda\,\overline{\widetilde\lambda/w_2}\,
+ \frac{S_k}{w_2}\pmod m.
+\end{equation}
+
+Define the genuine short scale
+
+\begin{equation}\label{eq:Delta-star}
+ \Delta^*=\min\left\{\frac{N}{|\Lambda|x^{5\eta}},\Delta_1\right\}.
+\end{equation}
+
+For shifted profiles at scales $\Delta^*/z_1$ and
+$|\bar a_\lambda|_{\rm sc}N$ (the latter notation means the real scale
+$|\lambda^*/\lambda|N$), let
+
+\begin{align}
+\Sigma_7(k):={}&\Bigg|
+ \sum_{\substack{d\equiv d_*\ (q_0)\\
+ (d,m\lambda\widetilde\lambda)=1}}
+ \psi_{\Delta^*/z_1}(d)
+ \sum_{n_1}^{\dagger_7}\psi_{|\lambda^*/\lambda|N}(n_1)
+ \notag\\[-1mm]
+&\quad\times e_m\!\left(
+ \frac{\bar a_\lambda\bar b_\lambda AS_k}
+ {(n_1+\bar a_\lambda(F_k+B)d)
+  (n_1+\bar b_\lambda(G_k+B)d)}
+ \right)\Bigg|.
+ \label{eq:Sigma7}
+\end{align}
+
+Here $\dagger_7$ consists of the congruence
+$a_\lambda n_1+F_kd\equiv n_*\pmod{q_0}$ and the four coprimality
+conditions obtained from \cref{eq:n-n1}.
+
+\begin{lemma}[Divisibility elimination]\label{lem:divisibility-elimination}
+For every retained $k$,
+
+\begin{equation}\label{eq:Sigma6-to-7}
+ \Sigma_6(k)
+ \ll\frac{\Delta_1}{\Delta^*}
+ \sup\bigl(\Sigma_7(k)+O(x^{-90})\bigr),
+\end{equation}
+
+where the supremum is over the shifted profiles and the compatible choices
+of $F_k,G_k$.
+\end{lemma}
+
+\begin{proof}
+Dividing the condition
+$\lambda\mid\widetilde\lambda n+(z_1/w_1)kd$ by $\lambda^*$ gives one
+linear class for $n$ modulo $a_\lambda$ because
+$(a_\lambda,b_\lambda)=1$.  Choosing its representative $F_k$ and
+substituting gives \cref{eq:n-n1}; the equality defining $G_k$ then gives
+\cref{eq:FG-relation} by direct subtraction.
+
+Use a smooth partition of unity to split the original $d$-support into
+$O(\Delta_1/\Delta^*)$ intervals of length $\Delta^*/z_1$.  On one such
+interval, centered at $x_0$, the only mixed profile is
+$\psi_N^*(a_\lambda n_1+F_kd)$.  Its normalized displacement satisfies
+
+\[
+ \frac{|F_k|\,|d-x_0|}{N}
+ \ll \frac{|\lambda|}{\lambda^*}
+       \frac{\Delta^*}{z_1N}
+ \ll x^{-5\eta}.
+\]
+
+Taylor expansion to order $J$ separates this profile into products of a
+shifted $n_1$-profile and a shifted $d$-profile; the remainder is
+$O(x^{-90})$ after summation.  The number of partition blocks is the displayed
+factor in \cref{eq:Sigma6-to-7}.  No replacement of $\Delta^*$ by
+$\Delta_1$ has been made.
+\end{proof}
+
+\subsection{Third elimination: all coprimality conditions}
+
+For $q_3\mid m/q_0$, residue classes $d^*,n^*\pmod{q_0q_3}$, shifted
+profiles with $N_2\le N$ and $\Delta_2\le\Delta^*$, and units
+$A_1,A_2\pmod m$, define
+
+\begin{align}
+\Sigma_8(k):={}&\Bigg|
+ \sum_{\substack{d\equiv d^*\ (q_0q_3)}}
+ \sum_{\substack{n\equiv n^*\ (q_0q_3)}}
+ \psi_{\Delta_2/z_1}(d)\psi_{N_2}(n)\notag\\[-1mm]
+&\hspace{27mm}\times
+ e_m\!\left(
+ \frac{w_2A_1L_1}
+ {(n+B_1d)(n+(B_1+L_1)d)}
+ \right)\Bigg|,
+ \label{eq:Sigma8}
+\end{align}
+
+where
+
+\begin{equation}\label{eq:L1}
+ L_1\equiv A_2\frac{S_k}{w_2}\pmod m,
+ \qquad (A_1A_2,m)=1.
+\end{equation}
+
+\begin{lemma}[Coprimality elimination]\label{lem:coprimality-elimination}
+For every compatible choice in \cref{eq:Sigma7},
+
+\begin{equation}\label{eq:Sigma7-to-8}
+ \Sigma_7(k)
+ \ll x^{2\eta+o(1)}q_3\sup\Sigma_8(k)+O(x^{-89}).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We give the full sequence of finite transformations.  First apply Mobius
+inversion to
+
+\[
+ (d,(\lambda/w_2)(\widetilde\lambda/w_2))=1,
+ \quad(a_\lambda n_1+F_kd,w_1)=1,
+ \quad(b_\lambda n_1+G_kd,w_1)=1.
+\]
+
+This introduces
+
+\begin{equation}\label{eq:f123}
+ f_1\mid(\lambda/w_2)(\widetilde\lambda/w_2),\qquad
+ f_2\mid w_1,\qquad f_3\mid w_1,
+\end{equation}
+
+and costs $x^{\eta+o(1)}$.  Put
+
+\[
+ f_2^*=(f_2,a_\lambda),\qquad
+ f_3^*=(f_3,b_\lambda).
+\]
+
+Solvability of the two resulting linear congruences first forces a divisor
+$f_{23}$ of $d/f_1$.  On common prime factors at which their required
+residues disagree, it forces a further squarefree divisor $f_4$.  The
+Chinese remainder theorem then gives the exact parametrization
+
+\begin{equation}\label{eq:f-param}
+ \begin{aligned}
+ d&=f^*d_3,&
+ n_1&=w_3n_3+H_kf_4d_3,\\
+ f^*&=f_1f_{23}f_4,&
+ w_3&=\lcm(f_2/f_2^*,f_3/f_3^*).
+ \end{aligned}
+\end{equation}
+
+The supports in \cref{eq:f123} and \cref{lem:valuation} give
+$(f^*w_3,m)=1$ and $w_3\mid w_1$.  Hence every division in
+\cref{eq:f-param} is valid modulo $m$.
+
+The profile in $w_3n_3+H_kf_4d_3$ is the last mixed profile.  On the
+$d_3$-support,
+
+\[
+ \frac{|H_kf_4|\,\Delta^*}{z_1f^*|\lambda^*/\lambda|N}
+ \ll \frac{w_1|\Lambda|\Delta^*}{z_1N}
+ \le x^{-5\eta}.
+\]
+
+Taylor expansion through order $J$ therefore separates it, with total
+remainder $O(x^{-89})$.
+
+Apply Mobius inversion a second time to the five remaining conditions.  It
+introduces
+
+\begin{equation}\label{eq:e01234}
+ e_0\mid m,\qquad e_1,e_2\mid c_1,\qquad e_3,e_4\mid c_2
+\end{equation}
+
+and a further $x^{\eta+o(1)}$ loss.  Let
+
+\[
+ g_1=\lcm(q_0,e_0,e_1,e_2,e_3,e_4)=q_0q_3.
+\]
+
+Because $q_0,c_1,c_2\mid m$ and $m$ is squarefree,
+$q_3\mid m/q_0$.  The congruences for $d_3,n_3$ are either incompatible,
+in which case the block is empty, or determine at most
+
+\[
+ \frac{g_1}{\lcm(q_0,e_0)}
+ \frac{g_1}{\lcm(q_0,e_1,e_2,e_3,e_4)}
+ \le\frac{g_1}{q_0}=q_3
+\]
+
+pairs of classes modulo $g_1$.  On each pair, collect the two denominator
+slopes into $B_1$ and $B_1+L_1$.  The relation
+\cref{eq:FG-relation} gives precisely \cref{eq:L1}; multiplying by units
+produces $A_1,A_2$.  The resulting sum is \cref{eq:Sigma8}.  Multiplying
+the two Mobius costs and the number of residue pairs proves
+\cref{eq:Sigma7-to-8}.
+\end{proof}
+
+\subsection{Uniformity of the descendant profiles}
+
+\begin{lemma}[Finite-jet closure]\label{lem:finite-jet}
+Let $J=\lceil20/\eta\rceil$ and $J_*=3J+2$.  Suppose every input profile
+has fixed compact support and satisfies
+
+\begin{equation}\label{eq:input-jets}
+ \|\psi^{(r)}\|_1+\|\psi^{(r)}\|_\infty
+ \le B_r(\log x)^{A_r},\qquad 0\le r\le J_*.
+\end{equation}
+
+Then every terminal profile in \cref{eq:Sigma8} belongs to one common
+shifted $C^2$ profile class, independent of all descendant choices.
+Moreover
+
+\begin{equation}\label{eq:terminal-polynomial-size}
+ m\le x^7,\qquad N_2\le x^7,\qquad \Delta_2/z_1\le x^7
+\end{equation}
+
+for sufficiently large $x$.
+\end{lemma}
+
+\begin{proof}
+Each of the three Taylor expansions differentiates an input profile at most
+$J$ times.  Two terminal derivatives therefore require at most
+$3J+2=J_*$ input derivatives.  Products, fixed partitions, and affine
+changes of variable preserve the compact support and yield uniform $C^2$
+seminorms by Leibniz' rule and the chain rule.  Every normalized Taylor
+increment is at most $x^{-5\eta}$, so
+
+\[
+ x^{-5\eta(J+1)}(\log x)^{O_\eta(1)}=O(x^{-100}).
+\]
+
+There are at most $(J+1)^3$ descendants, a number independent of $x$.
+
+For the size assertion, each of
+$r_1,q_0,u_1,v_1,v_2,q_2$ is $O(x)$ and
+
+\[
+ m=r_1q_0u_1[v_1,v_2]q_2\le x^6.
+\]
+
+Also $N_2\le N\le x$ and
+$\Delta_2/z_1\le\Delta^*\le\Delta_1\le\Delta\le x$.
+The relaxed common exponent seven leaves room for endpoint constants.
+\end{proof}
+
+The lemmas in this section form a one-way chain
+
+\begin{equation}\label{eq:descent-chain}
+ \Sigma_8\Longrightarrow\Sigma_7\Longrightarrow\Sigma_6
+ \Longrightarrow\Sigma_5\Longrightarrow\Sigma_4
+ \Longrightarrow\Sigma_3\Longrightarrow\Sigma_2
+ \Longrightarrow\Sigma_1^\sharp.
+\end{equation}
+
+Every arrow denotes an upper-bound implication, not an asserted equality.
+Restrictions are deleted only after an absolute value makes enlargement
+legitimate, and no deleted restriction is later restored.

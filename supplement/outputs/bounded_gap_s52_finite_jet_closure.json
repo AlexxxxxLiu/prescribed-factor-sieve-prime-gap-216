@@ -1,0 +1,26 @@
+{
+  "name": "Integrated S52 finite-jet closure regression",
+  "claimBoundary": "This checks the TeX proof binding and derivative-debt bookkeeping; the chain-rule argument in the manuscript remains the mathematical proof.",
+  "integratedProof": "s52-proof/04-supported-descent.tex",
+  "integratedProofSha256": "029c345d08a738b0d513685e71043df83a9a979ab1009418e238e8eb04b79987",
+  "symbolicDebt": {
+    "taylorDepth": 3,
+    "taylorOrder": "J=ceil(20/eta)",
+    "terminalDerivativeOrder": 2,
+    "maximumTerminalInputOrder": "3J+2",
+    "maximumRemainderInputOrder": "3J+1"
+  },
+  "checks": {
+    "integratedProofExists": true,
+    "allThreeTaylorEliminationsPresent": true,
+    "proofDefinesInputJetClass": true,
+    "proofDefinesTerminalC2Class": true,
+    "proofCarriesThreeTaylorDebt": true,
+    "proofFixesTaylorOrder": true,
+    "proofControlsRemainder": true,
+    "proofBoundsDescendantCount": true,
+    "terminalDebtFormula": true,
+    "proofGivesExplicitPolynomialExponent": true
+  },
+  "allChecksPass": true
+}

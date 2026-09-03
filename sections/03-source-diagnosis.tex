@@ -1,0 +1,89 @@
+\section{The prescribed-factor extension and the point requiring repair}
+\label{sec:diagnosis}
+
+This section records the precise relation between the published
+smooth-modulus theorem \cite{Stadlmann2025}, the S.~Type-I extension proposed
+in \cite{Stadlmann2026}, and \cref{thm:S52}.  The distinction matters
+because the larger modulus family is not covered by the published theorem.
+
+\subsection{What the published theorem supplies}
+
+The 2025 theorem assumes that the relevant modulus divides $P(x^\delta)$;
+in particular it is squarefree and every prime factor is at most $x^\delta$.
+Its q-van der Corput argument introduces a divisor at the scale
+\[
+ D=\frac{N}{x^{50\eta}H^2}.
+\]
+This theorem and its local reduction are established analytic inputs in the
+present paper.  What must be proved afresh is that the reduction survives when
+global smoothness is replaced by the two divisor witnesses in the definition
+of $\DS$.
+
+\subsection{The window inconsistency}
+
+In Lemma~6 on page~12 of version~1 of \cite{Stadlmann2026}, the
+S.~Type-I statement uses
+\[
+ r^2x^{2-\gamma-52\eta-\delta}d^{-4}<d_1<
+ r^2x^{2-\gamma-52\eta}d^{-4}.
+\]
+At the beginning of its proof on page~17 this is restated with $100\eta$,
+while the factor family immediately following the restatement again uses
+$52\eta$.
+These three displayed conditions define different modulus families.  The
+proof therefore does not, as written, establish the stated lemma.
+
+The compatible exponent is $52$.  Indeed, after the first factorization,
+\[
+ H=\frac{x^\eta RQ^2}{q_0M},
+\]
+and the stated divisor window gives
+\[
+ \frac{x^{2-\gamma-52\eta}}{Q^4R^2}
+ \asymp \frac{N}{q_0^2x^{50\eta}H^2}.
+\]
+Thus $52=50+2$, with the additional $2\eta$ arising from the square of the
+$x^\eta$ in the definition of $H$.  We retain this window throughout.
+
+\subsection{The terminal minimum}
+
+The more substantive issue occurs on page~18 and concerns
+\begin{equation}\label{eq:delta-star-diagnosis}
+ \Delta^*=\min\left\{
+ \frac{N}{|\Lambda|x^{5\eta}},\Delta_1\right\}.
+\end{equation}
+The extension sketch gives lower bounds of the form
+\[
+ \frac{N}{|\Lambda|x^{5\eta}}\gg C,
+ \qquad \Delta_1\gg C,
+\]
+and then sets $\Delta^*=\Delta_1$.  This conclusion does not follow: two
+quantities being bounded below by the same third quantity gives no ordering
+between them.  In particular, it does not establish
+$\Delta_1\le N/(|\Lambda|x^{5\eta})$.
+
+This is not merely a typographical matter, because reciprocal powers of
+$\Delta^*$ occur in the final estimates.  Our repair is to preserve the
+minimum and use the exact identity
+\begin{equation}\label{eq:delta-branch-diagnosis}
+ \frac1{\Delta_1\Delta^*}
+ =\max\left\{
+ \frac{|\Lambda|x^{5\eta}}{N\Delta_1},
+ \frac1{\Delta_1^2}
+ \right\}.
+\end{equation}
+Both branches are carried through the exponent ledger in
+\cref{sec:closure}.
+
+\subsection{Scholarly claim boundary}
+
+The observations above do not invalidate the published smooth-modulus theorem
+\cite{Stadlmann2025}; they concern only the larger prescribed-factor
+extension in \cite{Stadlmann2026}.  Nor do they imply that the desired
+extension is false.  Sections \ref{sec:terminal}--\ref{sec:outer} give a
+complete replacement argument: the supported local descent is proved first,
+and only then consumed by the outer Cartesian and dispersion closure.  The
+attribution used below is therefore: the smooth-modulus q-van der Corput
+architecture is due to Stadlmann, while the factor-interface transport to
+$\DS$, the genuine-minimum branch analysis, the supported descent, and the
+corrected outer Cartesian closure are contributions of the present paper.

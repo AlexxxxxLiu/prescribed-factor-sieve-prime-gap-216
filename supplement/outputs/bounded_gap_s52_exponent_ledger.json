@@ -1,0 +1,297 @@
+{
+  "branches": {
+    "WTS1_H": {
+      "baseExponent": {
+        "constant": "-1",
+        "delta": "3",
+        "gamma": "2",
+        "omega": "4"
+      },
+      "baseExponentDisplay": "-1 + (4)*omega + (3)*delta + (2)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 94,
+      "gcdAverageRepair": {
+        "etaCoefficient": -6,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -2
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -3,
+      "residualQ0Nonpositive": true,
+      "target": "WTS1",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "1",
+        "gamma": "0",
+        "omega": "4"
+      }
+    },
+    "WTS1_H2": {
+      "baseExponent": {
+        "constant": "-1",
+        "delta": "3",
+        "gamma": "2",
+        "omega": "8"
+      },
+      "baseExponentDisplay": "-1 + (8)*omega + (3)*delta + (2)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 91,
+      "gcdAverageRepair": {
+        "etaCoefficient": -9,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -5
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -6,
+      "residualQ0Nonpositive": true,
+      "target": "WTS1",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "1",
+        "gamma": "0",
+        "omega": "0"
+      }
+    },
+    "WTS2_H7": {
+      "baseExponent": {
+        "constant": "0",
+        "delta": "10",
+        "gamma": "-1",
+        "omega": "28"
+      },
+      "baseExponentDisplay": "0 + (28)*omega + (10)*delta + (-1)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 245,
+      "gcdAverageRepair": {
+        "etaCoefficient": 145,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -4
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -5,
+      "residualQ0Nonpositive": true,
+      "target": "WTS2",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "4"
+      }
+    },
+    "WTS2_H8": {
+      "baseExponent": {
+        "constant": "0",
+        "delta": "10",
+        "gamma": "-1",
+        "omega": "32"
+      },
+      "baseExponentDisplay": "0 + (32)*omega + (10)*delta + (-1)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 242,
+      "gcdAverageRepair": {
+        "etaCoefficient": 142,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -7
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -8,
+      "residualQ0Nonpositive": true,
+      "target": "WTS2",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "0"
+      }
+    },
+    "WTS3_Delta1_H11": {
+      "baseExponent": {
+        "constant": "1",
+        "delta": "16",
+        "gamma": "-4",
+        "omega": "44"
+      },
+      "baseExponentDisplay": "1 + (44)*omega + (16)*delta + (-4)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 327,
+      "gcdAverageRepair": {
+        "etaCoefficient": 227,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -5
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -6,
+      "residualQ0Nonpositive": true,
+      "target": "WTS3",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "4"
+      }
+    },
+    "WTS3_Delta1_H12": {
+      "baseExponent": {
+        "constant": "1",
+        "delta": "16",
+        "gamma": "-4",
+        "omega": "48"
+      },
+      "baseExponentDisplay": "1 + (48)*omega + (16)*delta + (-4)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 324,
+      "gcdAverageRepair": {
+        "etaCoefficient": 224,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -8
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -9,
+      "residualQ0Nonpositive": true,
+      "target": "WTS3",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "0"
+      }
+    },
+    "WTS3_Lambda_H11": {
+      "baseExponent": {
+        "constant": "1",
+        "delta": "16",
+        "gamma": "-4",
+        "omega": "44"
+      },
+      "baseExponentDisplay": "1 + (44)*omega + (16)*delta + (-4)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 282,
+      "gcdAverageRepair": {
+        "etaCoefficient": 182,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -6
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -7,
+      "residualQ0Nonpositive": true,
+      "target": "WTS3",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "4"
+      }
+    },
+    "WTS3_Lambda_H12": {
+      "baseExponent": {
+        "constant": "1",
+        "delta": "16",
+        "gamma": "-4",
+        "omega": "48"
+      },
+      "baseExponentDisplay": "1 + (48)*omega + (16)*delta + (-4)*gamma",
+      "coefficientwiseDominated": true,
+      "etaCoefficient": 279,
+      "gcdAverageRepair": {
+        "etaCoefficient": 179,
+        "multiplier": "q0*x^(-100 eta)",
+        "passes": true,
+        "residualQ0Exponent": -9
+      },
+      "mechanicallyDerived": true,
+      "residualQ0Exponent": -10,
+      "residualQ0Nonpositive": true,
+      "target": "WTS3",
+      "targetMinusBase": {
+        "constant": "0",
+        "delta": "0",
+        "gamma": "0",
+        "omega": "0"
+      }
+    }
+  },
+  "diameter226ParameterSlice": {
+    "delta": "1/50",
+    "gammaLower": "249/625",
+    "gammaLowerFromWTS2": "239/625",
+    "gammaLowerFromWTS3": "249/625",
+    "gammaUpper": "1093/2500",
+    "intervalNonempty": true,
+    "omega": "57/10000",
+    "sampleGamma": "2089/5000",
+    "sampleSlacks": {
+      "WTS1": "97/2500",
+      "WTS2": "177/5000",
+      "WTS3": "97/1250"
+    },
+    "sampleSufficientEtaUpper": "1/40000"
+  },
+  "etaAccounting": {
+    "fits": true,
+    "maximumDerivedCoefficient": 327,
+    "safeCoefficient": 400,
+    "subpowerTransportReserve": 8,
+    "sufficientRule": "eta < min(delta, -WTS1, -WTS2, -WTS3) / 800"
+  },
+  "interfaceIdentities": {
+    "Delta1Range": [
+      "N / (q0^2 x^(delta+55 eta) H^2)",
+      "N / (q0^2 x^(55 eta) H^2)"
+    ],
+    "DeltaStar": "min(N/(|Lambda| x^(5 eta)), Delta1)",
+    "DeltaStarLower": "N / (q0^2 x^(delta+55 eta) H^2)",
+    "H": "x^eta R Q^2 / (q0 M)",
+    "LambdaUpper": "q0 x^(delta+5 eta) H^2 / (w1 gcd(v1,v2))",
+    "extractedDelta": "N / (q0^2 x^(50 eta) H^2)",
+    "gcdAverageRepairFactor": "1 + S_x^O(1) q0 x^(-100 eta)",
+    "generalGcdAverage": "sum gcd <= x^eta ((A,m) K + T)"
+  },
+  "name": "corrected S52 factor-interface exponent ledger",
+  "status": {
+    "allBaseExponentsDominated": true,
+    "allBranchesMechanicallyDerived": true,
+    "allChecksPass": true,
+    "allGcdAverageRepairBranchesPass": true,
+    "allResidualQ0PowersNonpositive": true,
+    "etaBudgetFits": true
+  },
+  "targets": {
+    "WTS1": {
+      "display": "-1 + (8)*omega + (4)*delta + (2)*gamma",
+      "exponent": {
+        "constant": "-1",
+        "delta": "4",
+        "gamma": "2",
+        "omega": "8"
+      },
+      "requiredSign": "< 0"
+    },
+    "WTS2": {
+      "display": "0 + (32)*omega + (10)*delta + (-1)*gamma",
+      "exponent": {
+        "constant": "0",
+        "delta": "10",
+        "gamma": "-1",
+        "omega": "32"
+      },
+      "requiredSign": "< 0"
+    },
+    "WTS3": {
+      "display": "1 + (48)*omega + (16)*delta + (-4)*gamma",
+      "exponent": {
+        "constant": "1",
+        "delta": "16",
+        "gamma": "-4",
+        "omega": "48"
+      },
+      "requiredSign": "< 0"
+    }
+  }
+}

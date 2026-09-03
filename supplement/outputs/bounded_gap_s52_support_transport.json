@@ -1,0 +1,23 @@
+{
+  "allChecksPass": true,
+  "primeUniverse": [
+    2,
+    3,
+    5,
+    7,
+    11
+  ],
+  "supportAllocationsChecked": 59049,
+  "supportCells": [
+    "none",
+    "d1",
+    "r1",
+    "q0",
+    "u1",
+    "g",
+    "v1_only",
+    "v2_only",
+    "q2"
+  ],
+  "terminalQ3DivisorsChecked": 759375
+}

@@ -1,0 +1,164 @@
+\section{Finite certificates and reproduction}
+\label{app:certificate}
+
+\subsection{Frozen artifacts}
+
+The finite verification uses the five output artifacts and the separately
+hashed one-coordinate profile source in \cref{tab:artifact-manifest}.  The
+first column is the SHA-256 digest of the file bytes.  The canonical
+candidate digest in \cref{eq:candidate-hash} is different: it hashes only
+the mathematical binding object and is stable under harmless JSON
+formatting changes.
+
+\begin{table}[ht]
+\small
+\begin{tabular}{@{}p{\textwidth}@{}}
+\toprule
+\textbf{Frozen file and file-level SHA-256 digest}\\
+\midrule
+\path{bounded_gap_216_address_state_rational_candidate.json}\\[-2pt]
+\quad\texttt{c99e6bfc63fd530250ab3d439ff688c9}\allowbreak
+\texttt{e9c4eb9243bf04c37d6b895f15885fb2}\\[3pt]
+\path{bounded_gap_216_address_state_support_exact.json}\\[-2pt]
+\quad\texttt{18c4c52703f3415d6cb59e02259cb832}\allowbreak
+\texttt{f700a0210fbc5d46dd4952417964ed0c}\\[3pt]
+\path{bounded_gap_216_address_state_i_arb.json}\\[-2pt]
+\quad\texttt{7a95817358ecace2879270aee77926795}\allowbreak
+\texttt{bcaeeb80ab38f7bf7f545bea0d9f405}\\[3pt]
+\path{bounded_gap_216_address_state_j_arb.json}\\[-2pt]
+\quad\texttt{fa7a7124992aba6014483ed10ec8908b}\allowbreak
+\texttt{26ad598579933bf6f1dbd29049029556}\\[3pt]
+\path{bounded_gap_216_single_assumption_audit.json}\\[-2pt]
+\quad\texttt{4181126c1c84f366f03ea43894fba53a}\allowbreak
+\texttt{fce2c0aeff4828cbe44ff844104d83b5}\\[3pt]
+\path{build_bounded_gap_236_rational_candidate.py}\\[-2pt]
+\quad\texttt{e3d44a26ec147c5eca0b04491ee044a9}\allowbreak
+\texttt{ea41d6b20099364bf2e98a340d2b3bcd}\\
+\bottomrule
+\end{tabular}
+\caption{Finite-certificate and profile-source manifest.}
+\label{tab:artifact-manifest}
+\end{table}
+
+The ancillary package also contains the machine-readable file
+\path{MANIFEST.sha256}, which covers \path{requirements.txt}, the ancillary
+README, every supplied Python source, and every frozen JSON output.  Its
+SHA-256 digest is
+\[
+ \begin{gathered}
+ \mathtt{ce39da06a82645414027c5a0c701982c}\\
+ \mathtt{eefb5898c171a4f3443806a8cdad9f3a}.
+ \end{gathered}
+\]
+Generated virtual environments, bytecode, and cache directories are
+deliberately excluded from the package.
+
+The support calculation is performed in exact rational arithmetic.  Its
+current proof kernel trusts the QF-LRA unsatisfiability answers returned by
+Z3 \cite{Z3}; the JSON records the complete rational input and the covering
+partitions, but not a separately replayable solver proof object.  The
+integral calculation uses FLINT rational polynomials \cite{FLINT} followed by
+Arb balls with directed outward rounding \cite{Arb}.  No floating-point
+optimizer output enters the proof.
+
+\subsection{Reproduction commands}
+
+From the ancillary package root, create an isolated environment and install
+the versions recorded in \path{requirements.txt}:
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily\footnotesize,
+breaklines=true]
+shasum -a 256 --check MANIFEST.sha256
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+\end{lstlisting}
+The frozen finite candidate is then independently replayed and certified by
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily\footnotesize,
+breaklines=true]
+PYTHONPATH=scripts .venv/bin/python \
+  scripts/check_bounded_gap_226_layered_support.py \
+  --k 46 \
+  --candidate-json \
+  outputs/bounded_gap_216_address_state_rational_candidate.json \
+  --output \
+  outputs/bounded_gap_216_address_state_support_exact.json
+
+PYTHONPATH=scripts .venv/bin/python \
+  scripts/certify_bounded_gap_216_address_state_i_arb.py \
+  --precision 1024
+
+PYTHONPATH=scripts .venv/bin/python \
+  scripts/certify_bounded_gap_216_address_state_j_arb.py \
+  --precision 1024
+
+PYTHONPATH=scripts .venv/bin/python \
+  scripts/audit_bounded_gap_216_single_assumption.py
+\end{lstlisting}
+The filename of the generic support checker retains the earlier
+\texttt{226} development label; the explicit \texttt{--k 46} and candidate
+arguments bind this run to the present certificate.
+The floating-point optimization history that discovered the frozen candidate
+is not part of the ancillary package.  The absolute path in its provenance
+field is descriptive metadata only and is excluded from the canonical
+mathematical digest.  Reproduction here means replaying the exact support and
+interval certificates from the frozen rational input, not reproducing the
+heuristic search that found it.
+
+The analytic regression checks are
+\begin{lstlisting}[language=bash,basicstyle=\ttfamily\footnotesize,
+breaklines=true]
+.venv/bin/python scripts/check_bounded_gap_s52_exponent_ledger.py
+.venv/bin/python scripts/check_bounded_gap_s52_q0_transport.py
+.venv/bin/python scripts/check_bounded_gap_s52_gcd_repair.py
+.venv/bin/python scripts/check_bounded_gap_s52_reversible_preprocessing.py
+.venv/bin/python scripts/check_bounded_gap_s52_support_transport.py
+.venv/bin/python scripts/check_bounded_gap_s52_loss_budget.py
+.venv/bin/python scripts/check_bounded_gap_s52_finite_jet_closure.py
+.venv/bin/python scripts/check_bounded_gap_s52_outer_closure.py
+\end{lstlisting}
+These scripts verify finite algebraic identities and artifact bindings.
+They do not replace the analytic arguments in
+\cref{sec:terminal,sec:interfaces,sec:descent,sec:closure,sec:outer}.
+
+\subsection{Admissibility table}
+
+For the tuple in \cref{lem:tuple}, the following residue classes are
+unoccupied.  One missing class for each prime would suffice; all classes
+reported by the audit are retained here.
+\[
+\begin{array}{c|l@{\qquad}c|l}
+p&\text{missing residues}&p&\text{missing residues}\\
+\hline
+2&1&3&2\\
+5&2&7&3\\
+11&2&13&7\\
+17&5&19&17\\
+23&21&29&8,17\\
+31&1,15&37&8,24,35\\
+41&1,8,12,27,33,39&
+43&3,7,13,22,23,29
+\end{array}
+\]
+For every prime \(p>46\), cardinality alone supplies an unoccupied class.
+
+\subsection{Source provenance}
+
+For auditing the extension against the source arguments, the frozen source
+snapshots used in development had digests
+\[
+\begin{array}{c}
+\text{Polymath equidistribution source}\\
+\mathtt{fdffe1dfb7b820d8a45ecc0e07e2f7e}\\
+\mathtt{17404e6e10b63db110c2d44afe42013ea}\\[3pt]
+\text{Stadlmann smooth-modulus source}\\
+\mathtt{60c0440f33d9cbf504470716491fb4d4}\\
+\mathtt{5b45b26d9a960c8e34ff2af500837a30}\\[3pt]
+\text{Stadlmann 2026 version-1 source}\\
+\mathtt{c0d5d2317c77f4de7eacdef6e1d4b1e}\\
+\mathtt{b6433e6240b5c09273b3d4eee99e6c3ba}
+\end{array}
+\]
+The first two rows are established inputs.  The third is used to identify and
+compare the proposed relaxed-modulus estimates and their support conditions.
+The present paper proves the corrected prescribed-factor theorem
+\cref{thm:S52}; the source snapshot is not used as authority for that
+conclusion.

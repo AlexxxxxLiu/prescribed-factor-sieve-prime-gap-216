@@ -1,0 +1,91 @@
+\section{Corrections, attribution, and verification}
+\label{sec:status}
+
+The logical dependency graph of the argument is
+
+\begin{equation}\label{eq:dependency-DAG}
+ \begin{gathered}
+ \text{published dispersion and trace-function inputs},\\
+ \text{the prescribed-factor and support lemmas of \cref{sec:interfaces}},\\
+ \text{the expanded local descent of \cref{sec:descent}},\\
+ \text{the branch ledger of \cref{sec:closure}}\\[1mm]
+ \Downarrow\\[1mm]
+ \cref{prop:duplicated-S52}
+ \quad\Longrightarrow\quad
+ \cref{thm:S52}.
+ \end{gathered}
+\end{equation}
+
+The final equidistribution conclusion is never used to prove a local
+estimate.  In particular, the outer Cartesian enlargement in
+\cref{sec:outer} consumes \cref{prop:duplicated-S52} only after the latter
+has been proved.  Thus \cref{eq:dependency-DAG} is acyclic.
+
+The argument uses three kinds of material, which should not be conflated.
+
+\begin{enumerate}[label=\textup{(\arabic*)}]
+\item The Deligne-type complete-sum estimates and the initial dispersion
+identity are cited established theorems, not reproved here.
+
+\item The order of the $q$-van der Corput transformations originates in
+Stadlmann's argument.  The exact prescribed-factor family with its
+$52\eta$ window was recorded in
+\cite{Stadlmann2026}.  We retain both attributions even though the middle
+calculation has been rewritten rather than incorporated by reference.
+
+\item The corrected prescribed-factor family, reversible small-prime
+preprocessing, prime-support transport, full $q_0$ ledger, genuine
+$\Delta^*$ bifurcation, and gcd average without $T\ge K$ are the modified
+parts proved in this document.
+\end{enumerate}
+
+For reproducibility, the following finite checks accompany the manuscript:
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+  >{\raggedright\arraybackslash}p{0.38\textwidth}@{}}
+\toprule
+check & purpose\\
+\midrule
+\path{supplement/scripts/check_bounded_gap_s52_support_transport.py}
+ & squarefree support and CRT units\\
+\path{supplement/scripts/check_bounded_gap_s52_reversible_preprocessing.py}
+ & witness transport under preprocessing\\
+\path{supplement/scripts/check_bounded_gap_s52_q0_transport.py}
+ & full $q_0$ loss transport\\
+\path{supplement/scripts/check_bounded_gap_s52_gcd_repair.py}
+ & finite audit of the gcd-average repair\\
+\path{supplement/scripts/check_bounded_gap_s52_exponent_ledger.py}
+ & rational exponent and $q_0$ bookkeeping\\
+\path{supplement/scripts/check_bounded_gap_s52_outer_closure.py}
+ & outer Cauchy and dispersion monomials\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+These programs are regression checks only; none replaces an analytic
+estimate or a proof above.
+
+Relative to the established inputs \ref{input:trace}--\ref{input:qvdc}, the
+displayed argument proves \cref{thm:S52}; no conjectural estimate is used.
+For clarity, the proof has been organized around the following four
+verification checkpoints:
+
+\begin{enumerate}[label=\textup{(V\arabic*)}]
+\item verify that the stated form of the squarefree trace estimate follows
+from the cited sheaf results under both denominator conventions;
+\item compare every support deletion in \cref{sec:descent} against the
+frozen source calculation, including empty subunit ranges;
+\item independently recompute the eight exponent branches and the
+$\mathcal L$ correction;
+\item verify the exact hypotheses of the external dispersion reduction for
+the Cartesian families in \cref{sec:outer}.
+\end{enumerate}
+
+These checkpoints record where each cited input enters; they are not
+additional hypotheses of \cref{thm:S52}, and the finite programs above are
+not substitutes for the analytic argument.
+This paper establishes the prescribed-factor Type-I estimate itself and then supplies
+the separate sieve optimization and exact support check required for its
+bounded-gap application.  Those components are combined in
+\cref{sec:main-proof} to prove \cref{thm:main}.

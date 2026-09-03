@@ -1,0 +1,98 @@
+\section{Preliminaries}\label{sec:preliminaries}
+
+Throughout, $x$ tends to infinity.  Implied constants may depend on fixed
+parameters and fixed seminorm bounds, but not on $x$ or on the particular
+coefficient sequences under consideration.  We write
+$e_q(z)=\exp(2\pi iz/q)$ and use $\tau$ for the divisor function.
+
+\begin{definition}[Coefficient sequences]\label{def:coefficients}
+A coefficient sequence is a function
+$\alpha:\N\times(1,\infty)\to\R$ satisfying
+\[
+ |\alpha(n;x)|\ll \tau(n)^{O(1)}(\log x)^{O(1)}.
+\]
+It is \emph{located at scale} $N=N(x)$ if, for fixed $0<c<C$, it is
+supported on $[cN,CN]$.  A sequence at scale $N$ has the
+\emph{Siegel--Walfisz property} if, for all $A>0$, all $q,r\ge1$, and
+all $(a,q)=1$,
+\begin{equation}\label{eq:sw}
+ \left|
+ \sum_{\substack{n\equiv a\pmod q\\(n,r)=1}}\alpha(n;x)
+ -\frac1{\varphi(q)}\sum_{(n,qr)=1}\alpha(n;x)
+ \right|
+ \ll_A \tau(qr)^{O(1)}\frac{N}{(\log x)^A}.
+\end{equation}
+It is \emph{smooth at scale} $N$ if
+$\alpha(n;x)=\psi_x(n/N)$, where all $\psi_x$ are supported in one fixed
+compact interval and every fixed derivative is bounded by a fixed power of
+$\log x$.
+\end{definition}
+
+For $f=\alpha\star\beta$ put
+\begin{equation}\label{eq:discrepancy}
+ \Delta_f(a;d)=
+ \sum_{\substack{x\le n\le2x\\n\equiv a\pmod d}}f(n;x)
+ -\frac1{\varphi(d)}
+ \sum_{\substack{x\le n\le2x\\(n,d)=1}}f(n;x).
+\end{equation}
+Thus \cref{eq:S52-conclusion} is the assertion
+\[
+ \sum_{\substack{d\in\DS\\d\ \mathrm{squarefree}}}
+ |\Delta_f(a;d)|\ll_Ax(\log x)^{-A}.
+\]
+
+\subsection{Established analytic inputs}
+
+We use two groups of previously established results.
+
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item\label{input:trace} The sheaf-theoretic complete-sum and Fourier-transform estimates in
+\cite[Theorem~6.17, Corollary~6.24, and Proposition~8.4]{PolymathEDZ2014}.
+Only the second bound in Proposition~8.4 is used at the terminal stage.  Its
+local rational phase is nondegenerate whenever the two denominator slopes are
+distinct modulo every prime factor of the squarefree modulus.
+\item\label{input:outer} The dispersion identity and initial Type-I reduction
+in \cite[Sections~5 and 8A]{PolymathEDZ2014}, in the explicit form reorganized
+for smooth moduli in \cite{Stadlmann2025}.  We use the identity before any
+smoothness-based enlargement and prove the required enlargement for $\DS$.
+\item\label{input:qvdc} The algebraic q-van der Corput identities from
+\cite{Stadlmann2025}: Poisson completion, Cauchy--Schwarz, finite M\"obius
+inversion, CRT substitutions, and Taylor expansion of fixed smooth profiles.
+Every implication needed for the prescribed-factor family is stated and
+proved below; the smooth-modulus conclusion itself is not used as an input.
+\end{enumerate}
+
+The Bombieri--Vinogradov theorem, the prime number theorem, and the standard
+Maynard--Polymath multidimensional Selberg sieve are used in their customary
+forms \cite{Maynard2015,PolymathSieve2014}.
+
+\subsection{Parameter reserve}
+
+Assume \cref{eq:S52-a,eq:S52-b,eq:S52-c}.  Set
+\begin{align}
+\mathfrak m=\min\{&1-8\omega-4\delta-2\gamma,
+ \gamma-32\omega-10\delta,
+ 4\gamma-1-48\omega-16\delta,\notag\\
+&\tfrac12-2\omega-\gamma,
+ \gamma-\delta,
+ \gamma-8\omega-4\delta,
+ \tfrac14-16\omega-6\delta\}.
+\label{eq:margin}
+\end{align}
+Every entry is positive.  We fix
+\begin{equation}\label{eq:eta-choice}
+ 0<\eta<\eta_0:=
+ \min\left\{\frac{\delta}{10^{100}},\frac{\mathfrak m}{1600}\right\},
+ \qquad \eps_{\rm tr}=\frac{\eta}{1000}.
+\end{equation}
+The parameter $\eta$ pays structural losses in the q-van der Corput chain;
+$\eps_{\rm tr}$ is reserved for conductor, divisor, and finite-seminorm
+losses in the terminal trace estimate.  Keeping them separate prevents the
+same power saving from being spent twice.
+
+The first and third inequalities in the parameter region imply
+\begin{equation}\label{eq:aux-range}
+ 12\omega+6\delta<\gamma<\frac12-2\omega.
+\end{equation}
+All later auxiliary range conditions follow from
+\cref{eq:S52-a,eq:S52-b,eq:S52-c,eq:eta-choice}.

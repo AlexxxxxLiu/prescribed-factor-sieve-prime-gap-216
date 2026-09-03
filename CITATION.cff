@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the archived preprint below."
+title: "A Prescribed-Factor Sieve and an Unconditional Prime-Gap Bound of 216"
+authors:
+  - family-names: Liu
+    given-names: Jingwei
+version: 1.0.0
+date-released: 2026-09-03
+doi: 10.5281/zenodo.22261945
+license: CC-BY-4.0
+repository-code: "https://github.com/AlexxxxxLiu/prescribed-factor-sieve-prime-gap-216"
+url: "https://doi.org/10.5281/zenodo.22261945"

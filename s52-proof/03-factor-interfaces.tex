@@ -1,0 +1,207 @@
+\section{Prescribed factors and prime-support transport}
+\label{sec:interfaces}
+
+After the initial Type-I reduction write a contributing modulus as
+$d=qr$, where $q\asymp Q$, $r\asymp R$, and put
+
+\begin{equation}\label{eq:H}
+ H=\frac{x^\eta RQ^2}{q_0M}.
+\end{equation}
+
+The witness $u\mid d/r$, after its common part with $q_0$ is removed,
+gives $q_1=u_1v_1$ and the ranges
+
+\begin{align}
+ q_0^{-2}x^{-\delta-5\eta}\frac QH\ll U
+ &\ll q_0^{-1}x^{-5\eta}\frac QH,\notag\\
+ x^{5\eta}H\ll V&\ll q_0x^{\delta+5\eta}H,
+ \qquad UV\asymp Q/q_0.
+\label{eq:UV}
+\end{align}
+
+The second witness and $d\asymp QR$ give
+
+\[
+ d_1\asymp\frac{x^{2-\gamma-52\eta}}{Q^4R^2}
+ \asymp\frac{N}{q_0^2x^{50\eta}H^2}.
+\]
+
+After the standard subdivision into intervals shorter by $x^{5\eta}$,
+
+\begin{equation}\label{eq:Delta1}
+ \frac{N}{q_0^2x^{\delta+55\eta}H^2}
+ \ll\Delta_1\ll
+ \frac{N}{q_0^2x^{55\eta}H^2}.
+\end{equation}
+
+\subsection{Reversible small-prime preprocessing}
+
+Put
+
+\[
+ D_0=\exp((\log x)^{1/3}),\qquad
+ S_x=\exp((\log x)^{2/3}).
+\]
+
+\begin{lemma}[Preprocessing]\label{lem:preprocessing}
+Let $d$ be squarefree and let $r_0,u_0,d_{1,0}$ witness membership in
+$\DS(x)$.  Define
+
+\[
+ s(d)=\prod_{\substack{p\mid d\\p\le D_0}}p,\qquad
+ q_{\rm raw}=d/r_0,\qquad t=(q_{\rm raw},s(d)).
+\]
+
+If $s(d)\le S_x$, then
+
+\[
+ q=q_{\rm raw}/t,\qquad r=r_0t
+\]
+
+gives $d=qr$ and $(q,P(D_0))=1$.  There exist $u'\mid q$ and
+$d_{1,0}\mid r$ satisfying, after dyadic localization,
+
+\begin{align}
+ S_x^{-1}\frac{x^{1-\gamma-6\eta-\delta}}{QR}\ll u'
+ &\ll\frac{x^{1-\gamma-6\eta}}{QR},\label{eq:pre-u}\\
+ S_x^{-2}\frac{x^{2-\gamma-52\eta-\delta}}{Q^4R^2}\ll d_{1,0}
+ &\ll\frac{x^{2-\gamma-52\eta}}{Q^4R^2}.
+\label{eq:pre-d1}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Squarefreeness makes the displayed factorization exact.  Every small prime
+formerly in $q_{\rm raw}$ divides $t$, so the new $q$ is free of primes at
+most $D_0$.  Set $u'=u_0/(u_0,t)$.  Division by at most $S_x$ proves
+\cref{eq:pre-u}.  Since $r_0=r/t$, insertion into
+\cref{eq:S52-d1} produces exactly the factor $t^{-2}$ and proves
+\cref{eq:pre-d1}.
+\end{proof}
+
+The exceptional set $s(d)>S_x$ is negligible by the standard
+small-prime-tail estimate in the alternative Type-I reduction.  Restoring
+the preprocessing changes \cref{eq:UV,eq:Delta1} only by
+$S_x^{O(1)}=x^{o(1)}$.  Every later expression has fixed algebraic depth,
+so this loss never iterates with $x$.
+
+Define the independent families
+
+\begin{equation}\label{eq:families}
+\begin{aligned}
+\Qfam(Q,R)=\{q\in[Q,2Q]:{}&(q,P(D_0))=1,\\[-1mm]
+&q\text{ has a divisor in \cref{eq:pre-u}}\},\\
+\Rfam(Q,R)=\{r\in[R,2R]:{}&
+r\text{ has a divisor in \cref{eq:pre-d1}}\}.
+\end{aligned}
+\end{equation}
+
+Each nonexceptional modulus lies in one selected pair from
+$\Qfam\times\Rfam$.  A witness is selected before any Cartesian
+enlargement or Cauchy copy is made.
+
+\begin{lemma}[First-factor extraction]\label{lem:first-factor}
+Let $q^\sharp=q_0q_1$ be squarefree and let $u\mid q^\sharp$.  If
+
+\[
+ a_0=(u,q_0),\qquad u_1=u/a_0,\qquad v_1=q_1/u_1,
+\]
+
+then $q_1=u_1v_1$ and $u/q_0\le u_1\le u$.  Consequently the ranges
+\cref{eq:UV} hold.
+\end{lemma}
+
+\begin{proof}
+Prime supports in a squarefree number are sets.  Removing from $u$ the
+support shared with $q_0$ leaves a divisor of $q_1$; $v_1$ is its unique
+complement.  The inequalities follow from $a_0\le q_0$.
+\end{proof}
+
+\begin{lemma}[Second-factor extraction]\label{lem:second-factor}
+Choose one witness $d_1\mid r$, write $r=d_1r_1$, and localize
+$d_1\asymp\Delta$.  Then
+
+\[
+ S_x^{-2}\frac{N}{q_0^2x^{\delta+50\eta}H^2}\ll\Delta
+ \ll\frac{N}{q_0^2x^{50\eta}H^2}.
+\]
+
+An $O(x^{5\eta})$ smooth cover at scale
+$\Delta_1=\Delta/x^{5\eta}$ gives \cref{eq:Delta1}; moreover $d_1,r_1$
+are squarefree and coprime.
+\end{lemma}
+
+\begin{lemma}[Prime-support transport]\label{lem:prime-support}
+Suppose $q_0u_1v_ir$ and $q_0q_2r$ are squarefree for $i=1,2$, and
+$(u_1v_1v_2,q_0q_2)=1$.  Let
+
+\[
+ r=d_1r_1,\qquad g=(v_1,v_2),\qquad v_i=gv_i^*.
+\]
+
+Then the supports of
+
+\[
+ d_1,r_1,q_0,u_1,g,v_1^*,v_2^*,q_2
+\]
+
+are pairwise disjoint.  Hence
+
+\begin{equation}\label{eq:m}
+ m=r_1q_0u_1[v_1,v_2]q_2
+ =r_1q_0u_1gv_1^*v_2^*q_2
+\end{equation}
+
+is squarefree, $(d_1,m)=1$, and $q_0q_3$ is squarefree for every
+$q_3\mid m/q_0$.
+\end{lemma}
+
+\begin{proof}
+For squarefree integers, divisibility is inclusion of prime supports, gcd is
+intersection, lcm is union, and coprimality is disjointness.  The hypotheses
+separate all listed supports except the permitted overlap of $v_1,v_2$;
+extracting $g$ partitions that last overlap.  Splitting $r=d_1r_1$ proves
+the remaining assertions.
+\end{proof}
+
+\begin{lemma}[Valuation saturation]\label{lem:valuation}
+Let
+
+\[
+ m^*=m^{\lfloor2\log x\rfloor},\quad
+ w_2=(\lambda,m^*)=(\widetilde\lambda,m^*),\quad
+ \lambda^*=(\lambda,\widetilde\lambda).
+\]
+
+If $|\lambda|,|\widetilde\lambda|<x$, then, for large $x$,
+
+\[
+ (\lambda/w_2,m)=(\widetilde\lambda/w_2,m)
+ =(\lambda/\lambda^*,m)=(\widetilde\lambda/\lambda^*,m)=1.
+\]
+\end{lemma}
+
+\begin{proof}
+For every $p\mid m$, one has
+$p^{\lfloor2\log x\rfloor}>x$.  Thus the gcd with $m^*$ captures the full
+$p$-adic part of each integer.  Removing $w_2$, or the larger common factor
+$\lambda^*$, leaves a unit modulo $m$.
+\end{proof}
+
+\begin{lemma}[Gcd average without a range hypothesis]
+\label{lem:gcd-average}
+For $m\ge1$, $K,T>0$, and integers $A\ne0,B$,
+
+\begin{equation}\label{eq:gcd-average}
+ \sum_{\substack{|k|\le K\\(Ak+B,m)\le T}}(Ak+B,m)
+ \le\tau(m)\bigl(2(A,m)K+T\bigr).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Use $(u,m)\le\sum_{c\mid(u,m)}c$, interchange the two finite sums, and
+enlarge equality of the gcd to $c\mid Ak+B$.  If soluble, this congruence
+is one class modulo $c/(A,c)$ and contributes at most
+$2K(A,c)/c+1$.  Multiplication by $c$ gives at most
+$2(A,m)K+T$ for every $c\le T$.  There are at most $\tau(m)$ such divisors.
+\end{proof}

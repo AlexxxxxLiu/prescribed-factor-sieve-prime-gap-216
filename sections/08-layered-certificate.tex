@@ -1,0 +1,232 @@
+\section{The layered variational certificate}
+\label{sec:layered}
+
+This section is a finite, computer-assisted theorem.  The analytic
+equidistribution theorem proved in the preceding sections is not used in the
+evaluation of the integrals.  It enters only when the certified support is
+connected to the sieve in \cref{sec:main-proof}.
+
+\subsection{The layered support}
+
+Fix
+\begin{equation}\label{eq:finite-parameters}
+ k=46,\qquad
+ R=\frac{521}{2000},\qquad
+ \delta=\frac1{50},\qquad
+ \omega=\frac{57}{10000}.
+\end{equation}
+The endpoint used for the marginal integral is
+\begin{equation}\label{eq:outer-radius}
+ A_1=\frac14+\omega=\frac{2557}{10000},\qquad
+ \varepsilon=R-A_1=\frac3{625},\qquad
+ R_o=A_1-\varepsilon=\frac{2509}{10000}.
+\end{equation}
+Let
+\[
+\begin{array}{c|cccccccccc}
+m&1&2&3&4&5&6&7&8&9&10\\ \hline
+B_m&
+\frac{157}{1000}&\frac{161}{1000}&\frac{179}{1000}&
+\frac{179}{1000}&\frac{188}{1000}&\frac{199}{1000}&
+\frac{203}{1000}&\frac{208}{1000}&\frac{208}{1000}&
+\frac{211}{1000}.
+\end{array}
+\]
+For definiteness put $B_m=219/1000$ for $m\ge11$.
+
+\begin{definition}[Layered support]\label{def:layered-region}
+For $\mathbf t=(t_1,\ldots,t_k)\in[0,1]^k$, set
+\[
+ L(\mathbf t)=\{i:t_i>\delta\},
+ \qquad M(\mathbf t)=|L(\mathbf t)|.
+\]
+The layered region is
+\begin{equation}\label{eq:Omega}
+ \Omega=\left\{\mathbf t\in[0,1]^k:
+ \sum_{i=1}^k t_i<R,\quad
+ \sum_{i\in L(\mathbf t)}t_i\le B_{M(\mathbf t)}
+ \right\}.
+\end{equation}
+\end{definition}
+
+Only the layers $0\le M\le10$ are nonempty.  Indeed,
+$10\delta=1/5\le B_{10}$, whereas
+$11\delta=11/50>B_{11}$.  The point of \cref{eq:Omega} is that it retains
+both the number of coordinates above $\delta$ and their total mass.  A
+radial support condition remembers neither datum.
+
+\begin{proposition}[Exact support routing]\label{prop:support-routing}
+Every pair of coordinate configurations occurring in the denominator and
+the truncated marginal functionals on $\Omega$ satisfies one of the algebraic
+support conditions associated with Type~I, Type~IIa, Type~IIb, Type~III,
+Bombieri--Vinogradov, or the prescribed-factor condition of
+\cref{thm:S52}.  In every prescribed-factor cell, the three strict
+parameter inequalities in \cref{thm:S52} hold with positive rational
+slack.
+\end{proposition}
+
+\begin{proof}
+For fixed values of the two large-coordinate counts, all relevant
+conditions are rational linear inequalities in the ordered coordinate
+masses and the auxiliary partition points.  Of the
+$11\cdot12/2=66$ unordered count pairs, the pair $(0,0)$ contains no large
+coordinate and is routed directly to the Bombieri--Vinogradov cell.  We
+enumerate admissible factor partitions for each of the remaining $65$ pairs
+and ask Z3 to test the negation of their union in exact rational
+quantifier-free linear arithmetic.  Every returned result is unsatisfiable.
+The capacities, all covering partitions, and every strict rational margin
+are recorded in the ancillary support certificate.  Thus this is a finite
+exhaustive check, rather than a sampled-grid calculation.  The precise
+verification interface and its trusted-kernel boundary are described in
+\cref{app:certificate}.
+\end{proof}
+
+\subsection{The rational test function}
+
+Put $x_i=t_i/R$ and define
+\[
+ U=\sum_i x_i,\qquad
+ U_b=\sum_{i\in L(\mathbf t)}x_i,\qquad
+ D=\sum_i x_i^2.
+\]
+For $1\le m\le10$ let
+\begin{equation}\label{eq:Y-m}
+ Y_m=\frac{U_b-m\delta/R}{B_m/R-m\delta/R}\in[0,1].
+\end{equation}
+Let $L_j(y)=P_j(2y-1)$ be the shifted Legendre polynomial.  The frozen
+candidate has the form
+\begin{equation}\label{eq:test-function}
+ F(\mathbf t)=\1_{\Omega}(\mathbf t)
+ \prod_{i=1}^{46}q(x_i)
+ \left(A_{M(\mathbf t)}(U,Y_{M(\mathbf t)})
+       +D\,C_{M(\mathbf t)}(U)\right),
+\end{equation}
+where the $Y$-dependent terms are omitted in layer $M=0$, and
+\begin{equation}\label{eq:A-layer}
+ A_m(U,Y)=a_{m,0}(U)+\sum_{\ell=1}^{4}a_{m,\ell}(U)L_\ell(Y).
+\end{equation}
+Here $q$ is the fixed positive degree-$32$ one-coordinate polynomial whose
+$33$ shifted-Chebyshev coefficients, with denominator $2^{60}$, are frozen in
+the ancillary profile source identified by hash in
+\cref{app:certificate}.  All the $a_{m,\ell}$ and $C_m$ are expanded
+in shifted Legendre polynomials in $U$.  Their degree schedules, indexed by
+$m=0,\ldots,10$, are
+\begin{align}
+ \deg a_{m,0}&=(4,4,4,4,4,4,4,3,2,1,1),\notag\\
+ \deg a_{m,\ell}\;(\ell\ge1)
+ &=(-1,4,4,4,4,3,3,2,1,-1,-1),\notag\\
+ \deg C_m&=(3,3,3,3,3,2,2,1,1,-1,-1),
+\label{eq:degree-schedules}
+\end{align}
+where $-1$ means that the mode is absent.  This gives $208$ coefficients.
+Every coefficient is an integer divided by $2^{50}$.  The coefficient
+ordering and the complete numerator vector are part of the candidate whose
+canonical SHA-256 digest is
+\begin{equation}\label{eq:candidate-hash}
+\begin{gathered}
+\mathtt{fbc1d61a9bb8fd7576219001bee8b3c}\\
+\mathtt{92728dbfa633d6e710583d8aabd8f98c9}.
+\end{gathered}
+\end{equation}
+The digest binds the $208$ layer coefficients to $k=46$, the degree schedules,
+$R_o$, and the support digest.  The polynomial $q$ is bound separately by the
+profile-source hash in \cref{app:certificate}.  The floating-point searches
+that found these frozen inputs are not used in their certification.
+
+\subsection{The interval calculation}
+
+For a square-integrable function supported on $\Omega$, define
+\begin{align}
+ I(F)&=\int_{[0,\infty)^k}F(\mathbf t)^2\,\dd\mathbf t,
+\label{eq:I-def}\\
+ J_i(F)&=
+ \int_{\substack{\mathbf t_{\widehat i}\in[0,\infty)^{k-1}\\
+                  \sum_{j\ne i}t_j\le R_o}}
+ \left(\int_0^\infty F(\mathbf t)\,\dd t_i\right)^2
+ \dd\mathbf t_{\widehat i}.
+\label{eq:J-def}
+\end{align}
+By symmetry $J_i(F)$ is independent of $i$; denote it by $J(F)$.
+After the change of variables $t_i=Rx_i$, write
+\[
+ I(F)=R^{46}\overline I,\qquad
+ J(F)=R^{47}\overline J.
+\]
+Notice that \cref{eq:J-def} uses the conservative endpoint $R_o$.
+No unverified contribution from its complement is added.
+
+\begin{theorem}[Certified variational inequality]
+\label{thm:finite-certificate}
+The rational function \cref{eq:test-function} satisfies
+\begin{align}
+ \overline I&>
+ 9.0507319290958436555533517458740189572\cdot10^{-110},
+\label{eq:I-lower}\\
+ \overline J&>
+ 7.5531779869092232940446089973346969994\cdot10^{-111},
+\label{eq:J-lower}\\
+ 46R\overline J-\overline I&>
+ 2.4125261747861770030321563214845716954\cdot10^{-114}.
+\label{eq:margin-lower}
+\end{align}
+In particular,
+\begin{equation}\label{eq:score-lower}
+ \frac{46J(F)}{I(F)}>
+ 1.0000266555919862183480792294536290427>1.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+On each layer the integrands are polynomials over a rational polytope.
+The exact preprocessing uses rational polynomial arithmetic; the final
+integrals are evaluated at $1024$-bit precision with directed outward
+rounding in Arb \cite{Arb}.  The $I$ certificate separately encloses all
+eleven layer contributions.  The $J$ certificate separately encloses the
+small--small, twice-small--large, and large--large channels, and it imports
+the certified interval for $I$ by its file hash.  It then evaluates the
+signed expression $46R\overline J-\overline I$ directly, rather than
+deducing its sign by dividing two rounded decimal approximations.
+The resulting interval has the positive lower endpoint displayed in
+\cref{eq:margin-lower}.  Candidate and support hashes agree in all three
+artifacts.  Full midpoint-radius enclosures and reproduction commands are
+given in \cref{app:certificate}.
+\end{proof}
+
+\subsection{Removing the polyhedral discontinuity}
+
+The indicator in \cref{eq:test-function} is convenient for exact
+integration, whereas the sieve is usually stated for smooth test functions.
+The strict margin makes the passage harmless.
+
+\begin{lemma}[Smooth approximation]\label{lem:smooth-approximation}
+For every $\epsilon>0$ there is a smooth symmetric function
+$F_\epsilon$ compactly supported in the interior of $\Omega$ such that
+\[
+ |I(F_\epsilon)-I(F)|<\epsilon,\qquad
+ |J_i(F_\epsilon)-J_i(F)|<\epsilon
+ \quad(1\le i\le46).
+\]
+Consequently $F_\epsilon$ may be chosen so that
+$46J(F_\epsilon)>I(F_\epsilon)$.
+\end{lemma}
+
+\begin{proof}
+The region $\Omega$ is a finite union of bounded rational polyhedral cells
+and its boundary has Lebesgue measure zero.  Thus smooth functions compactly
+supported in the cell interiors are dense in $L^2(\Omega)$.  Averaging over
+the symmetric group preserves the support and gives symmetric
+approximants.  The map
+\[
+ T_iG(\mathbf t_{\widehat i})=\int_0^\infty G(\mathbf t)\,\dd t_i
+\]
+has operator norm at most $R^{1/2}$ from $L^2(\Omega)$ to
+$L^2(\dd\mathbf t_{\widehat i})$, by Cauchy--Schwarz on each fibre.
+Restriction to $\sum_{j\ne i}t_j\le R_o$ cannot increase the norm.
+Hence $I(G)=\|G\|_2^2$ and
+$J_i(G)=\|\1_{\{\sum_{j\ne i}t_j\le R_o\}}T_iG\|_2^2$
+are continuous under $L^2$ approximation.  The positive margin in
+\cref{eq:margin-lower} therefore persists.
+\end{proof}
+
+Together, \cref{prop:support-routing,thm:finite-certificate,lem:smooth-approximation}
+prove \cref{thm:finite-intro}.

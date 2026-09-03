@@ -1,0 +1,221 @@
+\section{Outer Cartesian and dispersion closure}
+\label{sec:outer}
+
+This section proves that the local estimate
+\cref{prop:duplicated-S52} applies to the individually witnessed modulus
+family in \cref{def:S52-family}.  The order in which witnesses are chosen is
+part of the argument.
+
+\subsection{Selection and Cartesian enlargement}
+
+Split the modulus range into dyadic blocks $d\asymp D$.  The blocks with
+
+\begin{equation}\label{eq:low-moduli}
+ D\le x^{1/2}(\log x)^{-B}
+\end{equation}
+
+contribute $O_A(x(\log x)^{-A})$ by the Bombieri--Vinogradov part of the
+external dispersion input \ref{input:outer}, after $B=B(A)$ is chosen.
+For the remaining blocks, $D\gg x^{1/2-\eta}$ for sufficiently large $x$.
+
+Delete the moduli for which
+
+\begin{equation}\label{eq:exceptional-small-primes}
+ \prod_{\substack{p\mid d\\p\le D_0}}p>S_x.
+\end{equation}
+
+The standard small-prime-tail estimate in the same external input bounds
+their total discrepancy by $O_A(x(\log x)^{-A})$.  For every surviving
+modulus, apply \cref{lem:preprocessing}.  Choose the lexicographically first
+admissible tuple
+
+\begin{equation}\label{eq:witness-order-first}
+ d\longmapsto(q(d),r(d),u(d),d_1(d))
+\end{equation}
+
+before any variable is duplicated.  Localizing $q$ and $r$ gives independent
+families $\Qfam(Q,R)$ and $\Rfam(Q,R)$ as in \cref{eq:families}, with
+
+\begin{equation}\label{eq:outer-QR}
+ x^{\gamma-\delta-3\eta}\ll R\ll x^{\gamma-2\eta},
+ \qquad
+ x^{1/2-\eta}\ll QR\ll x^{1/2+2\omega}.
+\end{equation}
+
+The strict parameter reserve gives
+
+\begin{equation}\label{eq:RQ2}
+ RQ^2=\frac{(RQ)^2}{R}
+ \ll x^{1+4\omega-\gamma+\delta+3\eta}\ll x.
+\end{equation}
+
+Each originally selected pair lies in
+$\Qfam(Q,R)\times\Rfam(Q,R)$.  Enlarge to that Cartesian product only after
+absolute values have made every summand nonnegative.  Extra cross-pairs and
+multiple representations can only enlarge the majorant.  Cross-pairs whose
+product is not squarefree are omitted; every selected original pair remains.
+No assertion is made that an extra cross-pair inherits either witness.
+
+\subsection{Completion and the common factor}
+
+Let $q^{(1)},q^{(2)}\in\Qfam(Q,R)$ be the two variables produced by
+Cauchy--Schwarz and write
+
+\begin{equation}\label{eq:q0-decomposition}
+ q_0=(q^{(1)},q^{(2)}),\qquad q^{(i)}=q_0q_i.
+\end{equation}
+
+Then $(q_1,q_2)=1$ and
+
+\begin{equation}\label{eq:q0-range}
+ 1\le q_0\le2Q,\qquad Q/q_0\le q_i\le2Q/q_0.
+\end{equation}
+
+Because every member of $\Qfam$ has no prime factor at most $D_0$,
+
+\begin{equation}\label{eq:q0-dichotomy}
+ q_0=1\quad\hbox{or}\quad q_0>D_0.
+\end{equation}
+
+For the witness $u(q^{(1)})$ chosen in
+\cref{eq:witness-order-first}, put
+
+\begin{equation}\label{eq:outer-u1v1}
+ u_1=\frac{u(q^{(1)})}{(u(q^{(1)}),q_0)},
+ \qquad v_1=q_1/u_1.
+\end{equation}
+
+This is the first-factor extraction in \cref{lem:first-factor}; localization
+gives \cref{eq:UV}.  If $H<1$, the completed nonzero-frequency sum is empty.
+Otherwise localize $h,u_1,v_1$ to scales $H^*,U,V$.
+
+For fixed $q_0,b_1,b_2$ and $0<|\ell|\ll N/R$, let
+$\Sigma^\sharp_{H^*,U,V}$ be the completed nonzero-frequency sum before the
+second Cauchy--Schwarz inequality.  Its first Cauchy factor is bounded by
+
+\begin{equation}\label{eq:first-Cauchy-factor}
+ \Upsilon_1\ll\frac{g_0RQUN}{q_0^2}.
+\end{equation}
+
+The second factor is $\Sigma_1^\sharp$, including both copies $v_1,v_2$,
+the common variables $r,u_1,q_2$, and all squarefree and coprimality
+indicators used in \cref{sec:descent}.  Consequently
+\cref{eq:first-Cauchy-factor,eq:duplicated-conclusion} give
+
+\begin{align}
+ (\Sigma^\sharp_{H^*,U,V})^2
+ &\ll \frac{g_0RQUN}{q_0^2}
+       \bigl(g_0RQNUV^2x^{-4\eta}\bigr),\notag\\
+ \Sigma^\sharp_{H^*,U,V}
+ &\ll\frac{g_0RQN}{q_0}UVx^{-2\eta}
+ \ll\frac{g_0RQ^2N}{q_0^2}x^{-2\eta}.
+ \label{eq:completed-local}
+\end{align}
+
+The last inequality uses $UV\asymp Q/q_0$.  Summing the fixed number of
+dyadic and preprocessing localizations changes \cref{eq:completed-local} to
+
+\begin{equation}\label{eq:completed-summed}
+ \Sigma^\sharp(Q,R;q_0,b_1,b_2,\ell)
+ \ll\frac{g_0RQ^2N}{q_0^2}x^{-2\eta+o(1)}
+ \ll\frac{g_0RQ^2N}{q_0^2}x^{-3\eta/2}.
+\end{equation}
+
+This is why the local proof keeps a full $x^{-2\eta}$ saving: the outer
+localizations consume part, but not all, of it.
+
+The completion is taken at
+
+\[
+ H=\frac{x^\eta RQ^2}{q_0M}.
+\]
+
+Its modulus is
+$k=r[q^{(1)},q^{(2)}]=rq_0q_1q_2\le8RQ^2/q_0$.  Therefore
+
+\[
+ \frac{H}{kM^{-1+\eta}}
+ \gg (x/M)^\eta\asymp N^\eta\longrightarrow\infty,
+\]
+
+so the completion range required in the external dispersion theorem is
+valid.  Its discarded-frequency remainder, with a sufficiently large fixed
+number of profile derivatives, is
+
+\begin{equation}\label{eq:completion-remainder}
+ O_A\left(\frac{MN^2}{R(\log x)^A}\right).
+\end{equation}
+
+\subsection{Return to the discrepancy}
+
+Before the final $q_0,\ell$ summation, the nonzero-frequency contribution is
+bounded by
+
+\begin{equation}\label{eq:outer-majorant}
+ \sum_{1\le|\ell|\ll N/R}\sum_{q_0\le2Q}
+ \frac{q_0M}{RQ^2}
+ \Sigma^\sharp(Q,R;q_0,b_1,b_2,\ell).
+\end{equation}
+
+For every nonzero $\ell$,
+
+\begin{align}
+ \sum_{q_0\le2Q}\frac{(q_0,\ell)}{q_0}
+ &=\sum_{q_0\le2Q}\frac1{q_0}
+   \sum_{c\mid(q_0,\ell)}\varphi(c)\notag\\
+ &\le(1+\log(2Q))\sum_{c\mid\ell}\frac{\varphi(c)}c
+ \ll\tau(|\ell|)\log(2Q)=x^{o(1)}.
+ \label{eq:q0ell-sum}
+\end{align}
+
+Insert \cref{eq:completed-summed} into \cref{eq:outer-majorant} and use
+\cref{eq:q0ell-sum}.  The result is
+
+\begin{equation}\label{eq:outer-power-saving}
+ \ll MNx^{-3\eta/2}
+ \sum_{1\le |\ell|\ll N/R}
+ \sum_{q_0\le 2Q}\frac{(q_0,\ell)}{q_0}
+ \ll\frac{MN^2}{R}x^{-3\eta/2+o(1)}
+ \ll\frac{MN^2}{R}x^{-\eta}.
+\end{equation}
+
+This is stronger than \cref{eq:completion-remainder} for every prescribed
+logarithmic power after enlarging its constant.
+
+The zero frequency with $q_0=1$ is the main term in the dispersion identity.
+For $q_0>1$, \cref{eq:q0-dichotomy} gives the standard majorant
+
+\begin{equation}\label{eq:zero-frequency-error}
+ MN(\log x)^{O(1)}+
+ \frac{MN^2}{RD_0}(\log x)^{O(1)},
+\end{equation}
+
+which is absorbed because $R/N\ll x^{-2\eta}$ and $D_0$ dominates every
+fixed power of $\log x$.  The diagonal $\ell=0$ is estimated elementarily
+using \cref{eq:RQ2} and $R\ll x^{-2\eta}N$.
+
+The initial dispersion identity, input \ref{input:outer}, now converts
+\cref{eq:completion-remainder,eq:outer-power-saving,eq:zero-frequency-error}
+back to the discrepancy \cref{eq:discrepancy}.  There are only
+$(\log x)^{O(1)}$ outer blocks.  Adding the low-modulus and exceptional
+small-prime contributions proves \cref{eq:S52-conclusion}, and therefore
+\cref{thm:S52}.
+
+All estimates above are uniform in the permitted initial residue $a=a(x)$.
+After the initial congruence is fixed, $a$ enters the local argument only
+through the unit $A$ in \cref{eq:AB-CRT}; the external complete-sum bounds
+and every ensuing absolute-value majorant are uniform in that unit.
+
+The complete order of choices is
+
+\begin{equation}\label{eq:quantifier-order}
+ \begin{gathered}
+ d\mapsto(q(d),r(d),u(d),d_1(d))
+ \mapsto(Q,R,\Qfam,\Rfam),\\
+ (Q,R,\Qfam,\Rfam)
+ \mapsto(q^{(1)},q^{(2)},q_0)
+ \mapsto(u_1,v_1,H^*,U,V).
+ \end{gathered}
+\end{equation}
+
+In particular, neither witness is allowed to depend on a later Cauchy copy.
